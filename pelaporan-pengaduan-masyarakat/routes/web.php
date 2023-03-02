@@ -17,6 +17,10 @@ Route::get('/', 'LoginController@login')->name('login');
 
 Route::post('loginaksi', 'LoginController@loginaksi')->name('loginaksi');
 
+Route::get('register', 'RegisterController@register')->name('register');
+
+Route::post('register', 'RegisterController@registeraksi')->name('registeraksi');
+
 Route::get('home', 'HomeController@index')->name('home')->middleware('auth');
 
 Route::get('logoutaksi', 'LoginController@logoutaksi')->name('logoutaksi')->middleware('auth');

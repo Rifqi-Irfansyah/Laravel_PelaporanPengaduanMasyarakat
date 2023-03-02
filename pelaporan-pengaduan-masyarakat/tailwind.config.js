@@ -10,14 +10,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        light: {
-          DEFAULT: '#DCE5F2',
-        },
-        middle: {
+        birutua: {
           DEFAULT: '#758ABA',
         },
-        dark: {
-          DEFAULT: '#445279',
+        birumuda: {
+          DEFAULT: '#DCE5F2',
+        },
+        kuning: {
+          DEFAULT: '#F8C300',
         },
       },
     },
@@ -25,3 +25,7 @@ module.exports = {
   variants: {},
   plugins: [],
 }
+
+// biru tua:445279
+// biru:758ABA
+// biru muda:DCE5F2
