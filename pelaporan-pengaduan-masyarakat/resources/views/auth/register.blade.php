@@ -66,9 +66,9 @@
                         class="flex flex-col gap-4 text-xs text-birutua">
                         @csrf
                         <input class="p-2 mt-8 rounded-xl border" type="name" name="name" class="form-control"
-                            placeholder="Name" required="">
+                            placeholder="Name" required=""  autocomplete="off">
                         <input class="p-2 rounded-xl border" type="email" name="email" class="form-control"
-                            placeholder="Email" required="">
+                            placeholder="Email" required=""  autocomplete="off">
                         <div class="relative">
                             <input class="p-2 rounded-xl border w-full" type="password" name="password"
                                 class="form-control" placeholder="Password" required="">
