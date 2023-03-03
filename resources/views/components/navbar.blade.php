@@ -160,11 +160,11 @@
 <!--##########################################################################-->
 <section class="bg-white border-b py-8">
     <div class="container max-w-5xl mx-auto">
-        <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+        <h2 class="w-full my-2 text-4xl font-bold leading-tight text-center text-gray-800">
             Ayo Adukan
         </h2>
         <div class="w-full mb-4">
-            <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+            <div class="h-1 mx-auto gradient w-64 my-0 py-0 rounded-t"></div>
         </div>
         <div class="flex flex-wrap mt-16">
             <div class="w-5/6 sm:w-1/2 p-6">
@@ -200,7 +200,7 @@
         </div>
 
         <div class="flex flex-wrap mt-4">
-            <div class="w-5/6 sm:w-1/2 p-6">
+            <div class="w-5/6 sm:w-1/2 p-6 mt-6">
                 <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
                     Perbaiki Situasi
                 </h3>
@@ -210,7 +210,7 @@
                 </p>
             </div>
             <div class="w-full sm:w-1/2 p-6">
-                <img class="w-auto sm:h-64 mx-auto" src="{{asset('images/ilustration_hesistant.png')}}" alt="">
+                <img class="w-auto sm:h-64 mx-auto" src="{{asset('images/ilustration_solve.png')}}" alt="">
             </div>
         </div>
     </div>
