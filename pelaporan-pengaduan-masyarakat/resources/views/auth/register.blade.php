@@ -65,12 +65,12 @@
                     <form action="{{ route('registeraksi') }}" method="post"
                         class="flex flex-col gap-4 text-xs text-birutua">
                         @csrf
-                        <input class="p-2 mt-8 rounded-xl border" type="name" name="name" class="form-control"
+                        <input class="p-2 mt-8 rounded-2xl border" type="name" name="name" class="form-control"
                             placeholder="Name" required=""  autocomplete="off">
-                        <input class="p-2 rounded-xl border" type="email" name="email" class="form-control"
+                        <input class="p-2 rounded-2xl border" type="email" name="email" class="form-control"
                             placeholder="Email" required=""  autocomplete="off">
                         <div class="relative">
-                            <input class="p-2 rounded-xl border w-full" type="password" name="password"
+                            <input class="p-2 rounded-2xl border w-full" type="password" name="password"
                                 class="form-control" placeholder="Password" required="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray"
                                 class="bi bi-eye absolute top-1/2 right-3 -translate-y-1/2" viewBox="0 0 16 16">
@@ -80,10 +80,10 @@
                                     d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
                             </svg>
                         </div>
-                        <input class="p-2 rounded-xl border w-full" type="password" name="password_confirmation"
+                        <input class="p-2 rounded-2xl border w-full" type="password" name="password_confirmation"
                             class="form-control" placeholder="Password Confirmation" required="">
                         <button
-                            class="bg-kuning rounded-xl text-sm text-birutua py-2 hover:scale-105 duration-300">Register</button>
+                            class="bg-kuning rounded-2xl text-sm text-birutua py-2 hover:scale-105 duration-300">Register</button>
                     </form>
 
                     <div class="mt-6 grid grid-cols-3 items-center">
@@ -94,9 +94,9 @@
 
                     <div class="mt-5 text-xs flex justify-between items-center">
                         <p>Already have an account?</p>
-                        <a href="{{ url('/')}}">
+                        <a href="{{ url('/')}}" class="rounded-2xl">
                             <button
-                                class="py-2 px-5 bg-white text-birutua border rounded-xl hover:scale-110 duration-300">Login</button>
+                                class="py-2 px-5 bg-white text-birutua border rounded-2xl hover:scale-110 duration-300">Login</button>
                         </a>
                     </div>
                 </div>
