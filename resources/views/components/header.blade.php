@@ -1,7 +1,23 @@
+<!doctype html>
+<html>
 
+<style>
+.gradient {
+    background: linear-gradient(90deg, #758ABA 0%, #758ABA 100%);
+}
+</style>
 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReportNow</title>
+    <!-- LOGO -->
+    <link href="{{asset('images/logo_dark.png')}}" rel="icon">
+    <link href="{{asset('images/logo_dark.png')}}" rel="apple-touch-icon">
+    @vite('resources/css/app.css')
+</head>
 
-
+<body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
 
 <!-- Change the colour #f8fafc to match the previous section colour -->
 <svg class="wave-top" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg"

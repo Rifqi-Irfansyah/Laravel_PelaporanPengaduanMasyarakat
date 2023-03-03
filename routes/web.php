@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'LoginController@login')->name('login');
 
-Route::post('loginaksi', 'LoginController@loginaksi')->name('loginaksi');
+Route::post('login', 'LoginController@loginaksi')->name('loginaksi');
 
 Route::get('register', 'RegisterController@register')->name('register');
 

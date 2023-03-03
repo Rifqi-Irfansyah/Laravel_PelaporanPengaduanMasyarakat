@@ -1,4 +1,3 @@
-
 <section class="container mx-auto text-center py-6 mb-12">
     <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
         Call to Action
@@ -91,7 +90,7 @@
 <!-- jQuery if you need it
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   -->
-  <script>
+<script>
 var scrollpos = window.scrollY;
 var header = document.getElementById("header");
 var navcontent = document.getElementById("nav-content");
@@ -174,3 +173,6 @@ function checkParent(t, elm) {
     return false;
 }
 </script>
+</body>
+
+</html>
