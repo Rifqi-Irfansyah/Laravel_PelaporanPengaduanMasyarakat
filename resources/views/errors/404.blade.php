@@ -14,7 +14,7 @@
             <div class=" text-center max-w-xl p-5 items-center">
                 <img src="{{ asset('images/404.png') }}" alt="">
                 <p class="mt-2 mb-8">PAGE NOT FOUND</p>
-                <a href="{{ url('/home')}}">
+                <a href="{{ url()->previous() }}">
                     <button
                         class="py-2 mt-10 px-5 bg-birutua text-white text-sm border rounded-2xl hover:scale-105 duration-300">Go Back</button>
                 </a>
