@@ -30,3 +30,5 @@ Route::get('logoutaksi', 'LoginController@logoutaksi')->name('logoutaksi')->midd
 // Akses Pengguna
 
 Route::get('/report', 'ReportController@index')->name('report')->middleware('user');
+
+Route::post('/report', 'ReportController@submit')->name('submit_report')->middleware('user');

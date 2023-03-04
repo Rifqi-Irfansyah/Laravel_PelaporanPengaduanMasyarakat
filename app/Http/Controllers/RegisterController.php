@@ -35,7 +35,7 @@ class RegisterController extends Controller
             return redirect()->intended('home');
         }
         else{
-            return redirect('/');
+            return redirect()->back();
         }
     }
 }
