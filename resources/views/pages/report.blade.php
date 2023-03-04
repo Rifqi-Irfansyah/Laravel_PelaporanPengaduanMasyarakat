@@ -7,7 +7,10 @@
     <div class="flex space-x-4 font-medium">
         <a href="/" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm"
             aria-current="page">Dashboard</a>
+
+        @if (auth()->user()->role=="user")
         <a href="/report" class="hover:bg-birutua rounded-3xl px-3 py-2 text-sm bg-birutua">Report</a>
+        @endif
 
         <a href="#" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Approve</a>
 

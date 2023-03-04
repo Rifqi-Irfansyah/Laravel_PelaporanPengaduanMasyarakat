@@ -27,4 +27,6 @@ Route::get('logoutaksi', 'LoginController@logoutaksi')->name('logoutaksi')->midd
 
 
 
-Route::get('/report', 'ReportController@index')->name('report');
+// Akses Pengguna
+
+Route::get('/report', 'ReportController@index')->name('report')->middleware('user');
