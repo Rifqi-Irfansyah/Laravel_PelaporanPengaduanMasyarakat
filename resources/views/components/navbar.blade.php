@@ -9,21 +9,13 @@
                     class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                     aria-controls="mobile-menu" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
-                    <!--
-            Icon when menu is closed.
-
-            Menu open: "hidden", Menu closed: "block"
-          -->
+                    <!--Icon when menu is closed.Menu open: "hidden", Menu closed: "block"-->
                     <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                         aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg>
-                    <!--
-            Icon when menu is open.
-
-            Menu open: "block", Menu closed: "hidden"
-          -->
+                    <!-- Icon when menu is open. Menu open: "block", Menu closed: "hidden" -->
                     <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                         aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -50,41 +42,48 @@
                     </button>
                 </a>
 
-
                 <!-- Profile dropdown -->
-                <div class="relative ml-3 ">
-                    <div>
-                        <button type="button"
-                            class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                            id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                            <span class="sr-only">Open user menu</span>
-                            <img class="h-8 w-8 rounded-full"
-                                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                alt="">
-                        </button>
-                    </div>
-
-                    <!--
-            Dropdown menu, show/hide based on menu state.
-
-            Entering: "transition ease-out duration-100"
-              From: "transform opacity-0 scale-95"
-              To: "transform opacity-100 scale-100"
-            Leaving: "transition ease-in duration-75"
-              From: "transform opacity-100 scale-100"
-              To: "transform opacity-0 scale-95"
-          -->
-                    <div class="absolute hidden right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black lg:block ring-opacity-5 focus:outline-none "
+                <div class="relative ml-3">
+                    <button type="button" onclick="document.getElementById('user-menu').classList.toggle('hidden')"
+                        class="flex rounded-full bg-gray-800 text-sm">
+                        <span class="sr-only">Open user menu</span>
+                        <img class="h-8 w-8 rounded-full"
+                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                            alt="">
+                    </button>
+                    <div id="user-menu"
+                        class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-2xl bg-white py-2 text-sm font-medium hidden flex flex-col"
                         role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                         <!-- Active: "bg-gray-100", Not Active: "" -->
-                        <a href="#" class="px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-                            id="user-menu-item-0">Your Profile</a>
-                        <a href="#" class="px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-                            id="user-menu-item-1">Settings</a>
-                        <a href="#" class="px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-                            id="user-menu-item-2">Sign out</a>
+                        <a href="#" onclick="performAction('Role')" class="flex items-center px-4 py-2 text-gray-700 hover:bg-birumuda rounded-2xl"
+                            role="menuitem" tabindex="-1">
+                            <img class="h-4 w-auto mr-2" src="{{asset('images/icon_role.png')}}" alt="#">Role: {{ Auth::user()->role }}
+                        </a>
+                        <a href="#" onclick="performAction('Your Profile')" class="flex items-center px-4 py-2 text-gray-700 hover:bg-birumuda rounded-2xl"
+                            role="menuitem" tabindex="-1">
+                            <img class="h-3.5 w-auto mr-2" src="{{asset('images/icon_user.png')}}" alt="#">{{ Auth::user()->name }}
+                        </a>
+                        <a href="#" onclick="performAction('Email')" class="flex items-center px-4 py-2 text-gray-700 hover:bg-birumuda rounded-2xl"
+                            role="menuitem" tabindex="-1">
+                            <img class="h-3.5 w-auto mr-2" src="{{asset('images/icon_email.png')}}" alt="#">{{ Auth::user()->email }}
+                        </a>
+                        <a href="{{ route('logoutaksi') }}" onclick="performAction('Sign Out')" class="flex items-center px-4 py-2 text-gray-700 hover:bg-birumuda rounded-2xl text-merah"
+                            role="menuitem" tabindex="-1">
+                            <img class="h-4 w-auto mr-2" src="{{asset('images/icon_logout.png')}}" alt="#">Sign Out
+                        </a>
                     </div>
                 </div>
+
+                <script>
+                function performAction(action) {
+                    console.log(`Performing action: ${action}`);
+                    // Do something with the selected action
+                    document.getElementById('user-menu').classList.add('hidden');
+                }
+                </script>
+
+                <!-- End dropdown -->
+
             </div>
         </div>
     </div>

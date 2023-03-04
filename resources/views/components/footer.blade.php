@@ -64,7 +64,7 @@
                         <a href="https://lottiefiles.com/" class="no-underline text-gray-700 hover:text-white">Lottie Files</a>
                     </li>
                     <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                        <a href="#" class="no-underline text-gray-700 hover:text-white">Contact</a>
+                        <a href="#" class="no-underline text-gray-700 hover:text-white">Flaticon</a>
                     </li>
                 </ul>
             </div>
