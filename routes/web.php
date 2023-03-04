@@ -24,3 +24,7 @@ Route::post('register', 'RegisterController@registeraksi')->name('registeraksi')
 Route::get('home', 'HomeController@index')->name('home')->middleware('auth');
 
 Route::get('logoutaksi', 'LoginController@logoutaksi')->name('logoutaksi')->middleware('auth');
+
+
+
+Route::get('/report', 'ReportController@index')->name('report');

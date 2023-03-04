@@ -30,18 +30,6 @@
                 @yield('navbar')
             </div>
             <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <a href="{{route('logoutaksi')}}">
-                    <button type="button"
-                        class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                        <span class="sr-only">View notifications</span>
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                            aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-                        </svg>
-                    </button>
-                </a>
-
                 <!-- Profile dropdown -->
                 <div class="relative ml-3">
                     <button type="button" onclick="document.getElementById('user-menu').classList.toggle('hidden')"
@@ -90,19 +78,19 @@
 
     <!-- Mobile menu, show/hide based on menu state. -->
     <div class="sm:hidden" id="mobile-menu">
-        <div class="space-y-1 px-2 pt-2 pb-3">
+        <div class="space-y-1 pt-2 pb-3 hidden">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
-                aria-current="page">Dashboard</a>
+                aria-current="page">Role: {{ Auth::user()->role }}</a>
 
             <a href="#"
-                class="text-gray-300 hover:bg-birumuda hover:text-white block rounded-md px-3 py-2 text-base font-medium">Team</a>
+                class="text-gray-300 hover:bg-birumuda hover:text-white block rounded-md px-3 py-2 text-base font-medium">Dashboard</a>
 
             <a href="#"
-                class="text-gray-300 hover:bg-birumuda hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
+                class="text-gray-300 hover:bg-birumuda hover:text-white block rounded-md px-3 py-2 text-base font-medium">Report</a>
 
             <a href="#"
-                class="text-gray-300 hover:bg-birumuda hover:text-white block rounded-md px-3 py-2 text-base font-medium">Calendar</a>
+                class="text-gray-300 hover:bg-birumuda hover:text-white block rounded-md px-3 py-2 text-base font-medium">Approve</a>
         </div>
     </div>
 </nav>
@@ -156,144 +144,4 @@
 <!--##########################################################################-->
 <!-- END OF HERO -->
 
-<!--##########################################################################-->
-<section class="bg-white border-b py-8">
-    <div class="container max-w-5xl mx-auto">
-        <h2 class="w-full my-2 text-4xl font-bold leading-tight text-center text-gray-800">
-            Ayo Adukan
-        </h2>
-        <div class="w-full mb-4">
-            <div class="h-1 mx-auto gradient w-64 my-0 py-0 rounded-t"></div>
-        </div>
-        <div class="flex flex-wrap mt-16">
-            <div class="w-5/6 sm:w-1/2 p-6">
-                <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
-                    Jangan Takut !!
-                </h3>
-                <p class="text-gray-600 mb-8">
-                    Kami memahami bahwa Anda mungkin merasa ragu atau takut untuk melaporkan suatu masalah. Namun, kami
-                    ingin mengajak Anda untuk tidak ragu atau takut dan melaporkan setiap masalah yang perlu
-                    ditindaklanjuti.
-                </p>
-            </div>
-            <div class="w-full sm:w-1/2 p-6">
-                <img class="w-auto sm:h-64 mx-auto" src="{{asset('images/ilustration_hesistant.png')}}" alt="">
-            </div>
-        </div>
-
-        <div class="flex flex-wrap flex-col-reverse sm:flex-row mt-4">
-            <div class="w-full sm:w-1/2 p-6 mt-6">
-                <img class="w-auto sm:h-64 mx-auto" src="{{asset('images/ilustration_urgent.png')}}" alt="">
-            </div>
-            <div class="w-full sm:w-1/2 p-6 mt-6">
-                <div class="align-middle">
-                    <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
-                        Pengaduanmu Penting
-                    </h3>
-                    <p class="text-gray-600 mb-8">
-                        Pengaduan Anda penting untuk memastikan tindakan yang tepat dan terkait dapat diambil. Jangan
-                        ragu untuk melaporkan masalah apapun yang perlu ditindaklanjuti.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="flex flex-wrap mt-4">
-            <div class="w-5/6 sm:w-1/2 p-6 mt-6">
-                <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
-                    Perbaiki Situasi
-                </h3>
-                <p class="text-gray-600 mb-8">
-                    Melapor kepada kami adalah langkah awal untuk memperbaiki situasi yang kurang baik. Jangan biarkan
-                    masalah terus berlanjut, laporkan kepada kami agar dapat segera ditangani dengan cepat dan efektif.
-                </p>
-            </div>
-            <div class="w-full sm:w-1/2 p-6">
-                <img class="w-auto sm:h-64 mx-auto" src="{{asset('images/ilustration_solve.png')}}" alt="">
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="bg-white border-b py-8">
-    <div class="container mx-auto flex flex-wrap pt-4 pb-12">
-        <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-            Title
-        </h2>
-        <div class="w-full mb-4">
-            <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
-        </div>
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-            <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-                <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-                    <p class="w-full text-gray-600 text-xs md:text-sm px-6">
-                        xGETTING STARTED
-                    </p>
-                    <div class="w-full font-bold text-xl text-gray-800 px-6">
-                        Lorem ipsum dolor sit amet.
-                    </div>
-                    <p class="text-gray-800 text-base px-6 mb-5">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
-                        posuere et sit amet ligula.
-                    </p>
-                </a>
-            </div>
-            <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-                <div class="flex items-center justify-start">
-                    <button
-                        class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                        Action
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-            <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-                <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-                    <p class="w-full text-gray-600 text-xs md:text-sm px-6">
-                        xGETTING STARTED
-                    </p>
-                    <div class="w-full font-bold text-xl text-gray-800 px-6">
-                        Lorem ipsum dolor sit amet.
-                    </div>
-                    <p class="text-gray-800 text-base px-6 mb-5">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
-                        posuere et sit amet ligula.
-                    </p>
-                </a>
-            </div>
-            <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-                <div class="flex items-center justify-center">
-                    <button
-                        class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                        Action
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-            <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-                <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-                    <p class="w-full text-gray-600 text-xs md:text-sm px-6">
-                        xGETTING STARTED
-                    </p>
-                    <div class="w-full font-bold text-xl text-gray-800 px-6">
-                        Lorem ipsum dolor sit amet.
-                    </div>
-                    <p class="text-gray-800 text-base px-6 mb-5">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
-                        posuere et sit amet ligula.
-                    </p>
-                </a>
-            </div>
-            <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-                <div class="flex items-center justify-end">
-                    <button
-                        class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                        Action
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+@yield('contain')
