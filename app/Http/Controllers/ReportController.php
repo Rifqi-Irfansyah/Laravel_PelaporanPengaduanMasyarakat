@@ -39,6 +39,7 @@ class ReportController extends Controller
             'incident_date' => $request->incident_date,
         ]);
 
-        return redirect()->back()->with('success', 'Pengaduan berhasil dikirimkan!');
+        return redirect()->route('report')->with('success_sendreport', 'Pengaduan berhasil dikirimkan!');
+
     }
 }

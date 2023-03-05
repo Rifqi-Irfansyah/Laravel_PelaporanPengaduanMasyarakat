@@ -1,4 +1,5 @@
 @extends('components.footer')
+@extends('components.popup')
 @extends('components.header')
 @extends('components.navbar')
 
@@ -25,66 +26,6 @@
     <div class="container max-w-3xl mx-auto text-birutua items-center">
 
         <p class="text-center text-2xl my-6 font-bold">Input Your Report</p>
-
-        @if (session('success'))
-        <script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Success',
-            text: '{{ session('
-            success ') }}',
-        });
-        </script>
-        @endif
-
-
-        <!-- FAILED LOGIN POP UP MODAL -->
-        @if ($errors->any())
-        <div class="fixed z-50 inset-0 overflow-y-auto flex items-center justify-center" id="popup_send_error">
-            <div class="fixed inset-0 transition-opacity">
-                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
-            </div>
-            <div
-                class="inline-block align-bottom bg-white rounded-2xl px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
-                <div class="sm:flex sm:items-start">
-                    <div
-                        class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-200 sm:mx-0 sm:h-10 sm:w-10">
-                        <svg class="h-6 w-6 text-red-600" stroke="currentColor" fill="none" viewBox="0 0 23 20">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12.707 10l4.647-4.646a.5.5 0 0 0-.708-.708L12 9.293l-4.646-4.647a.5.5 0 0 0-.708.708L11.293 10l-4.647 4.646a.5.5 0 0 0 .708.708L12 10.707l4.646 4.647a.5.5 0 0 0 .708-.708L12.707 10z">
-                            </path>
-                        </svg>
-                    </div>
-                    <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                        <h3 class=" mt-2 text-lg leading-6 font-medium text-gray-900">
-                            Failed Send
-                        </h3>
-                    </div>
-                </div>
-                <div class="mt-4 ml-2">
-                    @foreach ($errors->all() as $error)
-                    <li class="text-md leading-5 text-gray-500 text-sm">{{ $error }}</li>
-                    @endforeach
-                </div>
-                <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
-                    <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
-                        <button type="button"
-                            class="inline-flex justify-center w-full rounded-2xl border border-transparent px-4 py-2 bg-green-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5"
-                            data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light">
-                            Oke
-                        </button>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <script>
-        document.querySelector('[data-te-modal-dismiss]').addEventListener('click', function() {
-            document.querySelector('#popup_send_error').remove();
-        });
-        </script>
-
-        @endif
-        <!-- END FAILED LOGIN POP UP MODAL -->
 
         <form method="POST" action="{{ route('submit_report') }}" enctype="multipart/form-data"
             class="w-full max-w-2xl rounded-3xl mx-auto bg-birumuda p-10">
@@ -157,33 +98,8 @@
                     Submit
                 </button>
             </div>
-
         </form>
 
     </div>
 </section>
-
-<script>
-const form = document.querySelector('form');
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    Swal.fire({
-        title: 'Are you sure, will send report?',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Yes',
-        customClass: {
-            popup: 'background',
-            confirmButton: 'btn-confirm',
-            cancelButton: 'btn-cancel',
-            title: 'title',
-        }
-    }).then((result) => {
-        if (result.isConfirmed) {
-            form.submit();
-        }
-    })
-})
-</script>
-
 @endsection
