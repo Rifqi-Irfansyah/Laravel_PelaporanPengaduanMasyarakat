@@ -10,10 +10,10 @@
             aria-current="page">Dashboard</a>
 
         @if (auth()->user()->role=="user")
-        <a href="/report" class="hover:bg-birutua rounded-3xl px-3 py-2 text-sm bg-birutua">Create Report</a>
+        <a href="{{ route('report') }}" class="hover:bg-birutua rounded-3xl px-3 py-2 text-sm bg-birutua">Create Report</a>
         @endif
 
-        <a href="#" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Your Report</a>
+        <a href="{{ route('your_report') }}" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Your Report</a>
 
         <a href="#" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">About
             Us</a>
@@ -35,8 +35,8 @@
             </p>
         </div>
         <!--Right Col-->
-        <div class=" w-full md:w-3/5 py-6 text-center">
-            <img class="pt-16 px-16 md:w-4/5 z-50" src="{{url('images/ilustration_create.png')}}" />
+        <div class=" w-full md:w-3/5 pt-14 px-16">
+            <img class="w-full md:w-4/5 z-50" src="{{url('images/ilustration_create.png')}}" />
         </div>
     </div>
 </div>
