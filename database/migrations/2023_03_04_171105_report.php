@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('message');
             $table->string('destination_agency');
+            $table->string('images');
             $table->date('incident_date');
             $table->timestamps();
 

@@ -19,14 +19,23 @@ class ReportController extends Controller
         $userId = Auth::id();
 
         $this->validate($request, [
-            'description_report' => ['required'],
+            'description_report' => 'required',
+            'image_report' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+        
+        // dd($request->image_report);
+        
+        // get original name file & store in public/images_report
+        $image = $request->image_report;
+        $filename =  $request->image_report->getClientOriginalName();
+        $request->image_report->storeAs('images_report',$filename);
 
         $data = Report::create([
             'id_user' => $userId,
             'title' => $request->title_report,
             'message' => $request->description_report,
             'destination_agency' => $request->destination_agency,
+            'images' => $filename,
             'incident_date' => $request->incident_date,
         ]);
 

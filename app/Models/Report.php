@@ -15,6 +15,7 @@ class Report extends Model
         'id_user',
         'title',
         'message',
+        'images',
         'destination_agency',
         'incident_date',
     ];
