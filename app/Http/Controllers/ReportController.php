@@ -28,7 +28,7 @@ class ReportController extends Controller
         // get original name file & store in public/images_report
         $image = $request->image_report;
         $filename =  $request->image_report->getClientOriginalName();
-        $request->image_report->storeAs('images_report',$filename);
+        $request->image_report->storeAs('public/images_report',$filename);
 
         $data = Report::create([
             'id_user' => $userId,
@@ -39,6 +39,6 @@ class ReportController extends Controller
             'incident_date' => $request->incident_date,
         ]);
 
-        return redirect()->back()->with('success', 'Pengaduan berhasil ditambahkan!');
+        return redirect()->back()->with('success', 'Pengaduan berhasil dikirimkan!');
     }
 }

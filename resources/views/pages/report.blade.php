@@ -27,10 +27,16 @@
         <p class="text-center text-2xl my-6 font-bold">Input Your Report</p>
 
         @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
+        <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: '{{ session('
+            success ') }}',
+        });
+        </script>
         @endif
+
 
         <!-- FAILED LOGIN POP UP MODAL -->
         @if ($errors->any())
@@ -72,10 +78,10 @@
             </div>
         </div>
         <script>
-document.querySelector('[data-te-modal-dismiss]').addEventListener('click', function() {
-    document.querySelector('#popup_send_error').remove();
-});
-</script>
+        document.querySelector('[data-te-modal-dismiss]').addEventListener('click', function() {
+            document.querySelector('#popup_send_error').remove();
+        });
+        </script>
 
         @endif
         <!-- END FAILED LOGIN POP UP MODAL -->
