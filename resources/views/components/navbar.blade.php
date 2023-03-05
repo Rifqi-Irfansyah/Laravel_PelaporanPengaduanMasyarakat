@@ -100,24 +100,7 @@
 
 <!--Hero-->
 <!--##########################################################################-->
-<div class="py-32">
-    <div class=" container mx-auto flex flex-wrap flex-col md:flex-row items-center pl-24">
-        <!--Left Col-->
-        <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
-            <p class="uppercase tracking-loose w-full">Pelaporan Pengaduan Masyarakat</p>
-            <h1 class="my-4 text-6xl font-bold leading-tight">
-                Report Now
-            </h1>
-            <p class="leading-normal text-2xl">
-                Pemimpin yang baik dan bijaksana adalah yang mampu merealisasikan aspirasi masyarakatnya
-            </p>
-        </div>
-        <!--Right Col-->
-        <div class=" w-full md:w-3/5 py-6 text-center">
-            <img class="w-full md:w-4/5 z-50" src="{{url('images/animate_chat.gif')}}" />
-        </div>
-    </div>
-</div>
+@yield('hero')
 <div class="relative -mt-12 lg:-mt-24">
     <svg viewBox="0 0 1428 174" version="1.1" xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink">

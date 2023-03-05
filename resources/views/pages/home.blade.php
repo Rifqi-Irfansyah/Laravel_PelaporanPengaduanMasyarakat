@@ -21,6 +21,27 @@
 </div>
 @endsection
 
+@section('hero')
+<div class="py-32">
+    <div class=" container mx-auto flex flex-wrap flex-col md:flex-row items-center pl-24">
+        <!--Left Col-->
+        <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
+            <p class="uppercase tracking-loose w-full">Pelaporan Pengaduan Masyarakat</p>
+            <h1 class="my-4 text-6xl font-bold leading-tight">
+                Report Now
+            </h1>
+            <p class="leading-normal text-2xl">
+                Pemimpin yang baik dan bijaksana adalah yang mampu merealisasikan aspirasi masyarakatnya
+            </p>
+        </div>
+        <!--Right Col-->
+        <div class=" w-full md:w-3/5 py-6 text-center">
+            <img class="w-full md:w-4/5 z-50" src="{{url('images/animate_chat.gif')}}" />
+        </div>
+    </div>
+</div>
+@endsection
+
 @section('contain')
 <section class="bg-white border-b py-8">
     <div class="container max-w-5xl mx-auto">
