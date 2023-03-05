@@ -88,7 +88,7 @@
                     <label class="block tracking-wide text-gray-700 text-sm font-bold mb-1" for="image_report">
                         Image
                     </label>
-                    <input type="file" id="image_report" name="image_report" class="mt-1 text-sm">
+                    <input type="file" id="image_report" name="image_report" class="mt-1 text-sm text-gray-600 w-full bg-gray-100 py-2 rounded-2xl file:border-gray-200 file:text-xs file:font-bold file:bg-gray-200 file:rounded-xl file:px-2 file:mx-3 file:py-1">
                 </div>
             </div>
 
