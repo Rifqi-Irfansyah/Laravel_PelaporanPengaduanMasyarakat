@@ -10,7 +10,7 @@
 
         @if (auth()->user()->role=="user")
         <a href="/report"
-            class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Make Report</a>
+            class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Create Report</a>
         @endif
 
         <a href="#" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Your Report</a>

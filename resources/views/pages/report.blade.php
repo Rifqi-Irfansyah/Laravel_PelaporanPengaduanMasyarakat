@@ -10,10 +10,10 @@
             aria-current="page">Dashboard</a>
 
         @if (auth()->user()->role=="user")
-        <a href="/report" class="hover:bg-birutua rounded-3xl px-3 py-2 text-sm bg-birutua">Report</a>
+        <a href="/report" class="hover:bg-birutua rounded-3xl px-3 py-2 text-sm bg-birutua">Create Report</a>
         @endif
 
-        <a href="#" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Sent</a>
+        <a href="#" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Your Report</a>
 
         <a href="#" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">About
             Us</a>
@@ -26,17 +26,17 @@
     <div class=" container mx-auto flex flex-wrap flex-col md:flex-row items-center pl-24">
         <!--Left Col-->
         <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
-            <p class="uppercase tracking-loose w-full">Pelaporan Pengaduan Masyarakat</p>
+            <p class="uppercase tracking-loose w-full"></p>
             <h1 class="my-4 text-6xl font-bold leading-tight">
-                Send Report
+                Buat Laporan
             </h1>
             <p class="leading-normal text-2xl">
-                Pemimpin yang baik dan bijaksana adalah yang mampu merealisasikan aspirasi masyarakatnya
+                Buat Dan Kirim Laporan Untuk Pengaduan Dan Aspirasi
             </p>
         </div>
         <!--Right Col-->
         <div class=" w-full md:w-3/5 py-6 text-center">
-            <img class="w-full md:w-4/5 z-50" src="{{url('images/animate_chat.gif')}}" />
+            <img class="pt-16 px-16 md:w-4/5 z-50" src="{{url('images/ilustration_create.png')}}" />
         </div>
     </div>
 </div>
