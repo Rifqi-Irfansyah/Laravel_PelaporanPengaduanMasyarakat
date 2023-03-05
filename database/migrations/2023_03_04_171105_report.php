@@ -24,9 +24,9 @@ return new class extends Migration
             $table->string('message');
             $table->string('destination_agency');
             $table->string('images');
+            $table->enum('status', ['sent', 'process','done']);
             $table->date('incident_date');
             $table->timestamps();
-
             
         });
     }

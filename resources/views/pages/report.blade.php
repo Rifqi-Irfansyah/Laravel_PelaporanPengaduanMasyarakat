@@ -13,7 +13,7 @@
         <a href="/report" class="hover:bg-birutua rounded-3xl px-3 py-2 text-sm bg-birutua">Report</a>
         @endif
 
-        <a href="#" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Approve</a>
+        <a href="#" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Sent</a>
 
         <a href="#" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">About
             Us</a>
@@ -22,13 +22,13 @@
 @endsection
 
 @section('hero')
-<div class="py-32">
+<div class="py-8">
     <div class=" container mx-auto flex flex-wrap flex-col md:flex-row items-center pl-24">
         <!--Left Col-->
         <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
             <p class="uppercase tracking-loose w-full">Pelaporan Pengaduan Masyarakat</p>
             <h1 class="my-4 text-6xl font-bold leading-tight">
-                Report Now
+                Send Report
             </h1>
             <p class="leading-normal text-2xl">
                 Pemimpin yang baik dan bijaksana adalah yang mampu merealisasikan aspirasi masyarakatnya

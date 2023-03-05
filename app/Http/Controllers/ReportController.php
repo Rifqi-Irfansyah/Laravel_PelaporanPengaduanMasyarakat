@@ -36,6 +36,7 @@ class ReportController extends Controller
             'message' => $request->description_report,
             'destination_agency' => $request->destination_agency,
             'images' => $filename,
+            'status' => 'sent',
             'incident_date' => $request->incident_date,
         ]);
 

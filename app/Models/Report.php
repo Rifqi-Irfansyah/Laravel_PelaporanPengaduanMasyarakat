@@ -17,6 +17,7 @@ class Report extends Model
         'message',
         'images',
         'destination_agency',
+        'status',
         'incident_date',
     ];
 }
