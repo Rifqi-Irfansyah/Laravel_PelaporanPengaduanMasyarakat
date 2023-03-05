@@ -9,6 +9,7 @@ form.addEventListener('submit', (event) => {
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: ' Yes ',
+        cancelButtonText: ' No ',
         customClass: {
             popup: 'background',
             confirmButton: 'btn-confirm',
@@ -27,7 +28,7 @@ form.addEventListener('submit', (event) => {
 Swal.fire({
     icon: 'error',
     title: 'Failed Send',
-    html: '@foreach ($errors->all() as $error)<li class="text-md leading-5 text-gray-500 text-sm text-left">{{ $error }}</li>@endforeach',
+    html: '@foreach ($errors->all() as $error)<li class="text-md leading-5 text-sm text-left font-bold">{{ $error }}</li>@endforeach',
     confirmButtonText: ' Yes ',
     customClass: {
         popup: 'background',
