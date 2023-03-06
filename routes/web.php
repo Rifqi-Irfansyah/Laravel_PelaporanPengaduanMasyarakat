@@ -33,3 +33,7 @@ Route::get('/report', 'ReportController@index')->name('report')->middleware('use
 Route::post('/report', 'ReportController@submit')->name('submit_report')->middleware('user');
 
 Route::get('/yourreport', 'YourReportController@index')->name('your_report')->middleware('user');
+
+
+// Akses Admin
+Route::get('/previewreport', 'PreviewReportController@index')->name('preview_report')->middleware('admin');
