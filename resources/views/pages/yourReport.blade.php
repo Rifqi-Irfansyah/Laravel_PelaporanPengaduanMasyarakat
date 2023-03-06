@@ -10,7 +10,8 @@
             aria-current="page">Dashboard</a>
 
         @if (auth()->user()->role=="user")
-        <a href="{{ route('report') }}" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm ">Create Report</a>
+        <a href="{{ route('report') }}"
+            class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm ">Create Report</a>
         @endif
 
         <a href="{{ route('your_report') }}" class="bg-birutua rounded-3xl px-3 py-2 text-sm">Your Report</a>
@@ -46,8 +47,50 @@
 <section class="bg-white border-b py-8">
     <div class="container max-w-3xl mx-auto text-birutua items-center">
 
-        <p class="text-center text-2xl my-6 font-bold">Input Your Report</p>
+        <p class="text-center text-2xl my-6 font-bold">Laporan Mu</p>
 
+        <div class="flex flex-row my-6 justify-between bg-birumuda rounded-lg shadow-lg p-4 bg-gray-200">
+            <div class="w-auto flex-shrink-0">
+                <img src="{{url('storage/images_report/jalan rusak.jpg')}}" alt="Gambar"
+                    class="rounded-xl h-48 w-72 object-cover object-center overflow-hidden">
+            </div>
+            <div class="w-4/10 text-left ml-4">
+                <h2 class="text-xl text-left font-bold">Perbaikan Jalan di Cimahi Selatan</h2>
+                <p>Salah satu pengacara asal Kota Probolinggo, Mulyono mengatakan, dalam UU Nomor 22/2009, pihak
+                    penyelenggara jalan wajib segera memperbaiki jalan rusak yang dapat mengakibatkan kecelakaan lalu
+                    lintas. “Masyarakat berhak meminta ganti rugi segalanya. Baik kerusakan kendaraan atau orangnya,”
+                    ujarnya, Sabtu (13/3).</p>
+            </div>
+            <div class="w-1/10 text-right">
+                <span class="bg-green-500 text-white rounded-full px-3 py-1 text-sm font-semibold">Terkirim</span>
+            </div>
+        </div>
+
+        <div class="flex flex-row my-6 justify-between bg-white rounded-lg shadow-lg p-4 bg-gray-200">
+            <div class="w-auto flex-shrink-0">
+                <img src="{{url('storage/images_report/lemontea.jpg')}}" alt="Gambar"
+                    class="rounded-xl h-48 w-72 object-cover object-center overflow-hidden">
+            </div>
+            <div class="w-1/4 text-left">
+                <h2 class="text-xl text-left font-bold">Perbaikan Jalan</h2>
+            </div>
+            <div class="w-1/4 text-right">
+                <span class="bg-green-500 text-white rounded-full px-3 py-1 text-sm font-semibold">Terkirim</span>
+            </div>
+        </div>
+
+        <div class="flex flex-row my-6 justify-between bg-white rounded-lg shadow-lg p-4 bg-gray-200">
+            <div class="w-auto flex-shrink-0">
+                <img src="{{url('storage/images_report/jalan rusak.jpg')}}" alt="Gambar"
+                    class="rounded-xl h-48 w-72 object-cover object-center overflow-hidden">
+            </div>
+            <div class="w-1/4 text-left">
+                <h2 class="text-xl text-left font-bold">Perbaikan Jalan</h2>
+            </div>
+            <div class="w-1/4 text-right">
+                <span class="bg-green-500 text-white rounded-full px-3 py-1 text-sm font-semibold">Terkirim</span>
+            </div>
+        </div>
 
     </div>
 </section>
