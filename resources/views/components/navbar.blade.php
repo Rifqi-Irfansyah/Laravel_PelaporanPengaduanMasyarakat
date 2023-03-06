@@ -1,6 +1,6 @@
 <!--Nav-->
 <!--##########################################################################-->
-<nav class="bg-gray-700 fixed w-full z-30 px-24 rounded-b-3xl">
+<nav class="bg-gray-600 fixed w-full z-30 px-24 rounded-b-3xl backdrop-blur-lg">
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-16 items-center justify-between">
             <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -32,30 +32,33 @@
             <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <!-- Profile dropdown -->
                 <div class="relative ml-3">
-                    <button type="button" onclick="document.getElementById('user-menu').classList.toggle('hidden')"
+                    <button type="button" id="accountability_hover"
+                        onclick="document.getElementById('user-menu').classList.toggle('hidden')"
                         class="flex rounded-full bg-gray-800 text-sm">
                         <span class="sr-only">Open user menu</span>
-                        <img class="h-8 w-8"
-                            src="{{asset('images/icon_accountability.png')}}"
-                            alt="">
+                        <img class="h-8 w-8" src="{{asset('images/icon_accountability.png')}}" alt="">
                     </button>
                     <div id="user-menu"
-                        class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-2xl bg-white py-2 text-sm font-medium hidden flex flex-col"
+                        class="shadow-lg absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-2xl bg-white py-2 text-sm font-medium hidden flex flex-col"
                         role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                         <!-- Active: "bg-gray-100", Not Active: "" -->
-                        <a href="#" onclick="performAction('Role')" class="flex items-center px-4 py-2 text-gray-700 hover:bg-birumuda rounded-2xl"
+                        <a href="#" class="flex items-center px-4 py-2 text-gray-700 hover:bg-birumuda rounded-2xl"
                             role="menuitem" tabindex="-1">
-                            <img class="h-4 w-auto mr-2" src="{{asset('images/icon_role.png')}}" alt="#">Role: {{ Auth::user()->role }}
+                            <img class="h-4 w-auto mr-2" src="{{asset('images/icon_role.png')}}" alt="#">Role:
+                            {{ Auth::user()->role }}
                         </a>
-                        <a href="#" onclick="performAction('Your Profile')" class="flex items-center px-4 py-2 text-gray-700 hover:bg-birumuda rounded-2xl"
+                        <a href="#" class="flex items-center px-4 py-2 text-gray-700 hover:bg-birumuda rounded-2xl"
                             role="menuitem" tabindex="-1">
-                            <img class="h-3.5 w-auto mr-2" src="{{asset('images/icon_user.png')}}" alt="#">{{ Auth::user()->name }}
+                            <img class="h-3.5 w-auto mr-2" src="{{asset('images/icon_user.png')}}"
+                                alt="#">{{ Auth::user()->name }}
                         </a>
-                        <a href="#" onclick="performAction('Email')" class="flex items-center px-4 py-2 text-gray-700 hover:bg-birumuda rounded-2xl"
+                        <a href="#" class="flex items-center px-4 py-2 text-gray-700 hover:bg-birumuda rounded-2xl"
                             role="menuitem" tabindex="-1">
-                            <img class="h-3.5 w-auto mr-2" src="{{asset('images/icon_email.png')}}" alt="#">{{ Auth::user()->email }}
+                            <img class="h-3.5 w-auto mr-2" src="{{asset('images/icon_email.png')}}"
+                                alt="#">{{ Auth::user()->email }}
                         </a>
-                        <a href="{{ route('logoutaksi') }}" onclick="performAction('Sign Out')" class="flex items-center px-4 py-2 text-gray-700 hover:bg-birumuda rounded-2xl text-merah"
+                        <a href="{{ route('logoutaksi') }}"
+                            class="flex items-center px-4 py-2 text-gray-700 hover:bg-birumuda rounded-2xl text-merah"
                             role="menuitem" tabindex="-1">
                             <img class="h-4 w-auto mr-2" src="{{asset('images/icon_logout.png')}}" alt="#">Sign Out
                         </a>
@@ -63,13 +66,19 @@
                 </div>
 
                 <script>
-                function performAction(action) {
-                    console.log(`Performing action: ${action}`);
-                    // Do something with the selected action
-                    document.getElementById('user-menu').classList.add('hidden');
-                }
-                </script>
+                const button = document.getElementById('accountability_hover');
+                const contain = document.getElementById('user-menu')
 
+                button.addEventListener('mouseenter', () => {
+                    contain.classList.remove('hidden');
+                });
+                contain.addEventListener('mouseleave', () => {
+                    contain.classList.add('hidden');
+                });
+                contain.addEventListener('click', () => {
+                    contain.classList.add('hidden');
+                });
+                </script>
                 <!-- End dropdown -->
 
             </div>
