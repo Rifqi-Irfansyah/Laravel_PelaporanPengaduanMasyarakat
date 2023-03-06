@@ -48,50 +48,28 @@
     <div class="container max-w-3xl mx-auto text-birutua items-center">
 
         <p class="text-center text-2xl my-6 font-bold">Laporan Anda</p>
-        @foreach ($report as $report)
-            <tr>
-                <td>{{ $report->title }}</td>
-                <td>{{ $report->message }}</td>
-                <td>{{ $report->images }}</td>
-                <td>{{ $report->status }}</td>
-                <td>{{ $report->created_at }}</td>
-            </tr>
-            @endforeach
 
+        @foreach ($report as $report)
         <div class="flex flex-row my-6 justify-between border-solid border-2 border-gray-300 rounded-3xl p-4">
             <div class="w-auto flex-shrink-0">
-                <img src="{{url('storage/images_report/jalan rusak.jpg')}}" alt="Gambar"
+                <img src="{{url('storage/images_report/'.$report->images)}}" alt="Gambar"
                     class="rounded-xl h-48 w-72 object-cover object-center overflow-hidden">
             </div>
 
-           
-
             <div class="relative w-auto text-left ml-4 text-gray-600">
                 <div class="overflow-hidden h-40">
-                    <h2 class="text-md text-left font-bold">Perbaikan Jalan di Cimahi Selatan </h2>
-                    <p class="text-sm text-justify text-ellipsis ">Salah satu pengacara asal Kota Probolinggo, Mulyono
-                        mengatakan, dalam UU Nomor
-                        22/2009, pihak penyelenggara jalan wajib segera memperbaiki jalan rusak yang dapat mengakibatkan
-                        kecelakaan lalu lintas. “Masyarakat berhak meminta ganti rugi segalanya. Baik kerusakan
-                        kendaraan atau orangnya,”
-                        ujarnya, Sabtu (13/3).Salah satu pengacara asal Kota Probolinggo, Mulyono mengatakan, dalam UU
-                        Nomor
-                        22/2009, pihak penyelenggara Salah satu pengacara asal Kota Probolinggo, Mulyono mengatakan,
-                        dalam UU Nomor
-                        22/2009, pihak penyelenggara jalan wajib segera memperbaiki jalan rusak yang dapat mengakibatkan
-                        kecelakaan lalu lintas. “Masyarakat berhak meminta ganti rugi segalanya. Baik kerusakan
-                        kendaraan atau orangnya,”
-                        ujarnya, Sabtu (13/3).Salah satu pengacara asal Kota Probolinggo, Mulyono mengatakan, dalam UU
-                        Nomor
-                        22/2009, pihak penyelenggara</p>
+                    <h2 class="text-md text-left font-bold">{{ $report->title }}</h2>
+                    <p class="text-sm text-justify text-ellipsis ">{{ $report->message }}</p>
                 </div>
                 <div class="absolute bottom-0 text-xs font-bold items-end flex flex-row w-full">
-                    <span class="w-auto bg-green-500 text-white px-3 py-1 rounded-3xl ">Terkirim</span>
-                    <span class="w-full text-gray-400 text-xs font-thin py-1 text-right">2 Feb 2023</span>
+                    <span class="w-auto bg-green-500 text-white px-3 py-1 rounded-3xl ">{{ $report->status }}</span>
+                    <span class="w-full text-gray-400 text-xs font-thin py-1 text-right">{{ \Carbon\Carbon::parse($report->created_at)->format('d M Y') }}</span>
 
                 </div>
             </div>
         </div>
+        @endforeach
+
     </div>
 </section>
 @endsection

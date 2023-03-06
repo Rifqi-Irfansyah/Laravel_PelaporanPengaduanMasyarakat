@@ -22,10 +22,10 @@ return new class extends Migration
               ->on('users');
 
             $table->string('title');
-            $table->string('message');
+            $table->string('message', 5000);
             $table->string('destination_agency');
             $table->string('images');
-            $table->enum('status', ['sent', 'process','done']);
+            $table->enum('status', ['Terkirim', 'Proses','Selesai']);
             $table->date('incident_date');
             $table->timestamps();
 
