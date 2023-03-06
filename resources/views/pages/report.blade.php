@@ -74,7 +74,7 @@
                     </label>
                     <input
                         class="appearance-none block w-full bg-gray-100 text-gray-700 border text-sm border-gray-200 rounded-2xl py-3 px-4 mb-3 leading-tight focus:outline-birutua focus:bg-white"
-                        id="title_report" name="title_report" type="text" placeholder="Incident Report">
+                        id="title_report" name="title_report" type="text" required placeholder="Incident Report">
                 </div>
             </div>
 
@@ -85,7 +85,7 @@
                     </label>
                     <textarea
                         class="appearance-none block w-full bg-gray-100 text-gray-700 border text-sm border-gray-200 rounded-2xl py-3 px-4 mb-3 leading-tight focus:outline-birutua focus:bg-white"
-                        id="description_report" name="description_report" rows="5"
+                        id="description_report" name="description_report" rows="5" required
                         placeholder="Provide a detailed description of the incident"></textarea>
                 </div>
             </div>
@@ -97,7 +97,7 @@
                     </label>
                     <input
                         class="appearance-none block w-full bg-gray-100 text-gray-700 border text-sm border-gray-200 rounded-2xl py-3 px-4 mb-3 leading-tight focus:outline-birutua focus:bg-white"
-                        id="incident_date" name="incident_date" type="date" max="{{ date('Y-m-d') }}">
+                        id="incident_date" name="incident_date" type="date" required max="{{ date('Y-m-d') }}">
                 </div>
                 <div class="w-1/2 px-3">
                     <label class="block tracking-wide text-gray-700 text-sm font-bold mb-1" for="destination_agency">
@@ -105,7 +105,7 @@
                     </label>
                     <input
                         class="appearance-none block w-full bg-gray-100 text-gray-700 border text-sm border-gray-200 rounded-2xl py-3 px-4 mb-3 leading-tight focus:outline-birutua focus:bg-white"
-                        id="destination_agency" name="destination_agency" type="text"
+                        id="destination_agency" name="destination_agency" type="text" required
                         placeholder="e.g. Police Department">
                 </div>
             </div>
@@ -115,8 +115,9 @@
                     <label class="block tracking-wide text-gray-700 text-sm font-bold mb-1" for="image_report">
                         Image
                     </label>
-                    <input type="file" id="image_report" name="image_report"
-                        class="mt-1 text-sm text-gray-600 w-full bg-gray-100 py-2 rounded-2xl file:border-gray-200 file:text-xs file:font-bold file:bg-gray-200 file:rounded-xl file:px-2 file:mx-3 file:py-1">
+                    <input  
+                        class="mt-1 text-sm text-gray-600 w-full bg-gray-100 py-2 rounded-2xl file:border-gray-200 file:text-xs file:font-bold file:bg-gray-200 file:rounded-xl file:px-2 file:mx-3 file:py-1"
+                        id="image_report" name="image_report" type="file" accept="image/*" required>
                 </div>
             </div>
 
