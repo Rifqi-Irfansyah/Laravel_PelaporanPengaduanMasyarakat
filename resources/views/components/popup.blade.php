@@ -55,6 +55,7 @@ Swal.fire({
 
 
 // Pop Up Preview Report
+// Detail Report
 function showPopup(id, title, destination, date_create, status, message) {
     Swal.fire({
         title: title,
@@ -70,6 +71,7 @@ function showPopup(id, title, destination, date_create, status, message) {
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Validate',
+        cancelButtonText: 'Comment',
         maxHeight: '100vh',
         customClass: {
             popup: 'background-preview',
@@ -78,6 +80,7 @@ function showPopup(id, title, destination, date_create, status, message) {
             cancelButton: 'btn-cancel-preview',
         }
     }).then((result) => {
+        // validate the report and than change status to process
         if (result.isConfirmed) {
             Swal.fire({
                 icon: 'success',
@@ -90,6 +93,26 @@ function showPopup(id, title, destination, date_create, status, message) {
                     confirmButton: 'btn-confirm',
                 }
             });
+        }
+        // comment the report 
+        else if (result.dismiss === Swal.DismissReason.cancel) {
+            Swal.fire({
+                title: 'Enter your name',
+                input: 'text',
+                inputPlaceholder: 'Type your name here',
+                inputAttributes: {
+                    autocapitalize: 'off'
+                },
+                showCancelButton: true,
+                confirmButtonText: 'Submit',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const name = result.value;
+                    // Perform some action here based on the input value
+                }
+            });
+
         }
     })
 }
