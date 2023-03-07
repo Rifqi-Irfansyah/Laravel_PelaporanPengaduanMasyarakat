@@ -12,11 +12,13 @@
         @if (auth()->user()->role=="user")
         <a href="{{ route('report') }}"
             class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm ">Create Report</a>
-        <a href="{{ route('your_report') }}" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Your Report</a>
+        <a href="{{ route('your_report') }}"
+            class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Your Report</a>
         @endif
 
-        @if (auth()->user()->role=="admin")
-        <a href="{{ route('preview_report') }}" class="bg-birutua text-white rounded-3xl px-3 py-2 text-sm">Review Report</a>
+        @if (in_array(auth()->user()->role, ["admin", "office"]))
+        <a href="{{ route('preview_report') }}" class="bg-birutua text-white rounded-3xl px-3 py-2 text-sm">Review
+            Report</a>
         @endif
 
         <a href="#" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">About
@@ -48,44 +50,80 @@
 
 @section('contain')
 <section class="bg-white border-b py-8">
-    <div class="container max-w-3xl mx-auto text-birutua items-center">
+    <div class="container max-w-4xl mx-auto text-birutua items-center">
 
-        @if(count($report) > 0)
-        <p class="text-center text-2xl my-6 font-bold">Laporan Anda</p>
-        @foreach ($report as $report)
-        <div class="flex flex-row my-6 justify-between border-solid border-2 border-gray-300 rounded-3xl p-4">
-            <div class="w-auto flex-shrink-0">
-                <img src="{{url('storage/images_report/'.$report->images)}}" alt="Gambar"
-                    class="rounded-xl h-48 w-72 object-cover object-center overflow-hidden">
+        <div class="flex flex-row my-6 justify-between border-solid border-2 border-gray-300 rounded-3xl">
+
+            <div class="border-solid w-1/3 border-2 border-black rounded-2xl p-2 mx-4">
+                <div class="flex-shrink-0">
+                    <img src="{{url('storage/images_report/jalan rusak.jpg')}}" alt="Gambar"
+                        class="rounded-xl h-36 w-72 object-cover object-center overflow-hidden">
+                </div>
+
+                <div class="relative text-left mx-1 text-gray-600">
+                    <div class="overflow-hidden h-52">
+                        <h2 class="text-md text-left font-bold pt-2">Laman Judul</h2>
+                        <p class="text-sm text-justify text-ellipsis ">Lorem ipsum dolor sit, amet consectetur
+                            adipisicing elit. Quam quo distinctio possimus optio hic deserunt quisquam nisi quasi
+                            aspernatur autem maxime, consequuntur aperiam esse voluptatibus ab repellat? Veritatis, rem
+                            sequi.</p>
+                    </div>
+                    <div class="absolute bottom-0 text-xs font-bold items-end flex flex-row w-full">
+                        <span class="w-auto bg-green-500 text-white px-3 py-1 rounded-3xl ">Terkirim</span>
+                        <span class="w-full text-gray-400 text-xs font-thin py-1 text-right">2 feb 2020</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="relative w-full text-left ml-4 text-gray-600">
-                <div class="overflow-hidden h-40">
-                    <h2 class="text-md text-left font-bold">{{ $report->title }}</h2>
-                    <p class="text-sm text-justify text-ellipsis ">{{ $report->message }}</p>
+            <div class="border-solid w-1/3 border-2 border-black rounded-2xl p-2 mx-4">
+                <div class="flex-shrink-0">
+                    <img src="{{url('storage/images_report/jalan rusak.jpg')}}" alt="Gambar"
+                        class="rounded-xl h-36 w-72 object-cover object-center overflow-hidden">
                 </div>
-                <div class="absolute bottom-0 text-xs font-bold items-end flex flex-row w-full">
-                    <span class="w-auto bg-green-500 text-white px-3 py-1 rounded-3xl ">{{ $report->status }}</span>
-                    <span
-                        class="w-full text-gray-400 text-xs font-thin py-1 text-right">{{ \Carbon\Carbon::parse($report->created_at)->format('d M Y') }}</span>
 
+                <div class="relative text-left mx-1 text-gray-600">
+                    <div class="overflow-hidden ">
+                        <h2 class="text-md text-left font-bold pt-2">Laman Judul</h2>
+                        <p class="text-sm text-justify text-ellipsis h-28">Lorem ipsum dolor sit, amet consectetur
+                            adipisicing elit. Quam quo distinctio possimus optio hic deserunt quisquam nisi quasi
+                            aspernatur autem maxime, consequuntur aperiam esse voluptatibus ab repellat? Veritatis, rem
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla molestias placeat error
+                            eligendi ipsa, sapiente in dolor, pariatur ipsum vero, ex quia hic aliquam commodi quis
+                            fugiat repellat id porro.
+                            sequi.</p>
+                    </div>
+                    <div class="absolute bottom-0 text-xs font-bold items-end flex flex-row w-full">
+                        <span class="w-auto bg-green-500 text-white px-3 py-1 rounded-3xl ">Terkirim</span>
+                        <span class="w-full text-gray-400 text-xs font-thin py-1 text-right">2 feb 2020</span>
+                    </div>
                 </div>
             </div>
-        </div>
-        @endforeach
-        @else
 
-        <div class="text-center items-center p-5">
-            <img class="max-w-xl mx-auto" src="{{asset('images/ilustration_empty.png')}}" alt="#">
-            <p class="text-gray-600 text-2xl font-bold pt-5">Ooops Anda Belum Membuat Laporan</p>
-            <a href="{{ route('report') }}">
-                <button
-                    class="py-2 mt-2 px-5 bg-birutua text-white text-sm border rounded-2xl hover:scale-105 duration-300">Buat
-                    Laporan
-                </button>
-            </a>
+            <div class="border-solid w-1/3 border-2 border-black rounded-2xl p-2 mx-4">
+                <div class="flex-shrink-0">
+                    <img src="{{url('storage/images_report/jalan rusak.jpg')}}" alt="Gambar"
+                        class="rounded-xl h-36 w-72 object-cover object-center overflow-hidden">
+                </div>
+
+                <div class="relative text-left mx-1 text-gray-600">
+                    <div class="overflow-hidden h-52">
+                        <h2 class="text-md text-left font-bold pt-2">Laman Judul</h2>
+                        <p class="text-sm text-justify text-ellipsis ">Lorem ipsum dolor sit, amet consectetur
+                            adipisicing elit. Quam quo distinctio possimus optio hic deserunt quisquam nisi quasi
+                            aspernatur autem maxime, consequuntur aperiam esse voluptatibus ab repellat? Veritatis, rem
+                            sequi.</p>
+                    </div>
+                    <div class="absolute bottom-0 text-xs font-bold items-end flex flex-row w-full">
+                        <span class="w-auto bg-green-500 text-white px-3 py-1 rounded-3xl ">Terkirim</span>
+                        <span class="w-full text-gray-400 text-xs font-thin py-1 text-right">2 feb 2020</span>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
-        @endif
+
+
 
     </div>
 </section>

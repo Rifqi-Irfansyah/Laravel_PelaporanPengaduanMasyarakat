@@ -16,7 +16,7 @@ class isAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        // logic Must be User
+        // logic Must be Admin
         if(!auth()->check() || auth()->user()->role !== 'admin'){
             abort (403);
         }
