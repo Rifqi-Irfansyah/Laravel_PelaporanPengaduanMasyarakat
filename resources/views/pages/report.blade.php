@@ -74,7 +74,7 @@
                     </label>
                     <input
                         class="appearance-none block w-full bg-gray-100 text-gray-700 border text-sm border-gray-200 rounded-2xl py-3 px-4 mb-3 leading-tight focus:outline-birutua focus:bg-white"
-                        id="title_report" name="title_report" type="text" required placeholder="Incident Report">
+                        id="title_report" name="title_report" type="text" required placeholder="Judul Pengaduan" autocomplete="off">
                 </div>
             </div>
 
@@ -86,7 +86,7 @@
                     <textarea
                         class="appearance-none block w-full bg-gray-100 text-gray-700 border text-sm border-gray-200 rounded-2xl py-3 px-4 mb-3 leading-tight focus:outline-birutua focus:bg-white"
                         id="description_report" name="description_report" rows="5" required
-                        placeholder="Provide a detailed description of the incident"></textarea>
+                        placeholder="Deskripsi mendetail laporan pengaduan" autocomplete="off"></textarea>
                 </div>
             </div>
 
@@ -106,7 +106,7 @@
                     <input
                         class="appearance-none block w-full bg-gray-100 text-gray-700 border text-sm border-gray-200 rounded-2xl py-3 px-4 mb-3 leading-tight focus:outline-birutua focus:bg-white"
                         id="destination_agency" name="destination_agency" type="text" required
-                        placeholder="e.g. Police Department">
+                        placeholder="e.g. Kantor Kepolisian" autocomplete="off">
                 </div>
             </div>
 

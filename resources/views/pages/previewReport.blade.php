@@ -61,7 +61,7 @@
         @foreach ($report as $report)
         <a href="">
             <div
-                class="w-60 p-2 mx-1 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl">
+                class="w-72 p-2 mx-1 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl">
                 <!-- Image -->
                 <img class="h-30 object-cover rounded-xl h-36 w-full overflow-hidden" h-40 object-cover rounded-xl"
                     src="{{url('storage/images_report/'.$report->images)}}" alt="">
@@ -73,7 +73,7 @@
                 </div>
                 <div class="m-2 flex flex-row w-auto">
                     <!-- Status -->
-                    <div class=" text-white text-xs w-auto bg-purple-600 px-3 py-1 rounded-xl">
+                    <div class=" text-white text-xs w-auto bg-birutua px-3 py-1 rounded-xl">
                         {{ $report->status }}
                     </div>
                     <!-- Created At -->
