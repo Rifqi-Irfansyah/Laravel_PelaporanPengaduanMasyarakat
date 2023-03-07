@@ -97,15 +97,22 @@ function showPopup(id, title, destination, date_create, status, message) {
         // comment the report 
         else if (result.dismiss === Swal.DismissReason.cancel) {
             Swal.fire({
-                title: 'Enter your name',
+                title: 'Enter Comment',
                 input: 'text',
-                inputPlaceholder: 'Type your name here',
+                inputPlaceholder: 'Masukkan tanggapan',
                 inputAttributes: {
-                    autocapitalize: 'off'
+                    autocapitalize: 'off',
                 },
                 showCancelButton: true,
                 confirmButtonText: 'Submit',
-                cancelButtonText: 'Cancel'
+                cancelButtonText: 'Cancel',
+                customClass:{
+                    input: 'input-text',
+                    popup: 'background',
+                    title: 'title',
+                    confirmButton: 'btn-confirm',
+                    cancelButton: 'btn-cancel',
+                }
             }).then((result) => {
                 if (result.isConfirmed) {
                     const name = result.value;
