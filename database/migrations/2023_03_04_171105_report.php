@@ -53,6 +53,12 @@ return new class extends Migration
             END
         ');
 
+        DB::statement('
+            CREATE PROCEDURE update_record(IN `record_id` INT, IN `new_status` ENUM("Terkirim", "Proses", "Selesai"))
+            BEGIN
+                UPDATE `report` SET `status` = `new_status` WHERE id_pengaduan = `record_id`;
+            END
+        ');
     }
 
     /**
