@@ -19,6 +19,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="{{asset('css/popup.css')}}">
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 </head>
 
 <body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">

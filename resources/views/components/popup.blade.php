@@ -82,18 +82,49 @@ function showPopup(id, title, destination, date_create, status, message) {
     }).then((result) => {
         // validate the report and than change status to process
         if (result.isConfirmed) {
+            // Confirmation validate the report
             Swal.fire({
-                icon: 'success',
-                title: 'Validated',
-                text: 'Laporan telah divalidasi',
+                title: 'Yakin Ingin Memvalidasi Laporan<br>' + title,
+                icon: 'warning',
+                showCancelButton: true,
                 confirmButtonText: ' Yes ',
+                cancelButtonText: ' No ',
                 customClass: {
                     popup: 'background',
-                    title: 'title',
                     confirmButton: 'btn-confirm',
+                    cancelButton: 'btn-cancel',
+                    title: 'title',
                 }
-            });
+            }).then((result) => {
+                // If Confirmation is agree
+                if (result.isConfirmed) {
+                    // Update Status Record
+                    axios.put('/previewreport/' + id + '/update', {
+                            new_value: 'Proses'
+                        })
+                        .then(response => {
+                            // Popup Success
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Report Has Been Validated',
+                                timer: 1500,
+                                timerProgressBar: true,
+                                showConfirmButton: false,
+                                customClass: {
+                                    popup: 'background',
+                                    title: 'title',
+                                }
+                            });
+                            // Refresh Page
+                            setTimeout(function() {
+                                location.reload();
+                            }, 1400);
+                        })
+                }
+            })
+
         }
+
         // comment the report 
         else if (result.dismiss === Swal.DismissReason.cancel) {
             Swal.fire({
@@ -106,7 +137,7 @@ function showPopup(id, title, destination, date_create, status, message) {
                 showCancelButton: true,
                 confirmButtonText: 'Submit',
                 cancelButtonText: 'Cancel',
-                customClass:{
+                customClass: {
                     input: 'input-text',
                     popup: 'background',
                     title: 'title',

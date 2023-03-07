@@ -37,3 +37,5 @@ Route::get('/yourreport', 'YourReportController@index')->name('your_report')->mi
 
 // Akses Admin & Office
 Route::get('/previewreport', 'PreviewReportController@index')->name('preview_report')->middleware('adminOffice');
+
+Route::put('/previewreport/{id}/update', 'PreviewReportController@updateStatus')->name('update_status_report')->middleware('adminOffice');
