@@ -47,7 +47,7 @@
 @endsection
 
 @section('contain')
-<section class="bg-white border-b py-8">
+<section class="bg-gray-100 border-b py-8">
     <div class="container max-w-3xl mx-auto text-birutua items-center">
 
         @if(count($report) > 0)

@@ -34,15 +34,15 @@
         <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
             <p class="uppercase tracking-loose w-full"></p>
             <h1 class="my-4 text-6xl font-bold leading-tight">
-                Laporan Pengaduanmu
+                Laporan Masyarakat
             </h1>
             <p class="leading-normal text-2xl">
-                Laporan Yang Telah Dikirimkan Akan Segera Diproses Oleh Kami
+                Laporan Masyarakat Yang Telah Dikirim Tertera Disini
             </p>
         </div>
         <!--Right Col-->
         <div class=" w-full md:w-3/5 pt-14 px-16">
-            <img class="w-full md:w-4/5 z-50" src="{{url('images/ilustration_myreport.png')}}" />
+            <img class="w-full md:w-4/5 z-50" src="{{url('images/ilustration_review.png')}}" />
         </div>
     </div>
 </div>
@@ -67,9 +67,9 @@
                     src="{{url('storage/images_report/'.$report->images)}}" alt="">
                 <div class="p-2 overflow-hidden h-48">
                     <!-- Heading -->
-                    <h2 class="font-bold text-lg mb-0 ">{{ $report->title }}</h2>
+                    <h2 class="font-bold text-lg mb-0 leading-6">{{ $report->title }}</h2>
                     <!-- Description -->
-                    <p class="text-sm text-justify mb-2 text-ellipsis">{{ $report->message }}</p>
+                    <p class="text-sm text-justify mb-2 text-ellipsis leading-0">{{ $report->message }}</p>
                 </div>
                 <div class="m-2 flex flex-row w-auto">
                     <!-- Status -->
