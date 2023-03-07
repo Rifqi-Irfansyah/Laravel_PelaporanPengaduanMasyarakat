@@ -52,4 +52,45 @@ Swal.fire({
     }
 })
 @endif
+
+
+// Pop Up Preview Report
+function showPopup(id, title, destination, date_create, status, message) {
+    Swal.fire({
+        title: title,
+        html: '<div class="text-base text-left">' +
+            '<p>Kepada: ' + destination + '</p>' +
+            '<p>Dibuat: ' + date_create + '</p>' +
+            '<p>Status: ' + status + '</p><br>' +
+            '</div>' +
+            '<p class="text-base text-justify">' + message + '</p>',
+        scrollbarPadding: true,
+        showCloseButton: true,
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Validate',
+        maxHeight: '100vh',
+        customClass: {
+            popup: 'background-preview',
+            title: 'title-preview',
+            confirmButton: 'btn-confirm-preview',
+            cancelButton: 'btn-cancel-preview',
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Validated',
+                text: 'Laporan telah divalidasi',
+                confirmButtonText: ' Yes ',
+                customClass: {
+                    popup: 'background',
+                    title: 'title',
+                    confirmButton: 'btn-confirm',
+                }
+            });
+        }
+    })
+}
 </script>

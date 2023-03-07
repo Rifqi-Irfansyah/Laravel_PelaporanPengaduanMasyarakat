@@ -57,9 +57,11 @@
         @if(count($report) > 0)
         <p class="text-center text-2xl text-birutua font-bold w-full">Laporan Masyarakat</p>
 
-        <!-- Link To PopUp -->
+        <!-- Card Report -->
         @foreach ($report as $report)
-        <a href="">
+        <!-- Link To PopUp -->
+        <button
+            onclick="showPopup('{{ $report->id_pengaduan }}', '{{ $report->title }}', '{{ $report->destination_agency }}', '{{ \Carbon\Carbon::parse($report->created_at)->format('d M Y') }}', '{{ $report->status }}', {{ json_encode($report->message) }})">
             <div
                 class="w-72 p-2 mx-1 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl">
                 <!-- Image -->
@@ -82,7 +84,7 @@
                     </div>
                 </div>
             </div>
-        </a>
+        </button>
         @endforeach
         @endif
     </div>

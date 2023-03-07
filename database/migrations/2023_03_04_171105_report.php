@@ -47,9 +47,9 @@ return new class extends Migration
         ');
 
         DB::statement('
-            CREATE PROCEDURE `get_reports_by_status` (IN `status` VARCHAR(20))
+            CREATE PROCEDURE `get_reports_by_status` (IN `input_status` ENUM("Terkirim", "Proses", "Selesai"))
             BEGIN
-                SELECT * FROM `report` WHERE `status` = `status`;
+                SELECT * FROM `report` WHERE `status` = `input_status` COLLATE utf8mb4_unicode_ci;
             END
         ');
 
