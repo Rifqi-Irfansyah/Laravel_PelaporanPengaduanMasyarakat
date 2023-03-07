@@ -49,82 +49,45 @@
 @endsection
 
 @section('contain')
-<section class="bg-white border-b py-8">
-    <div class="container max-w-4xl mx-auto text-birutua items-center">
+<section class="bg-gray-100 border-b py-8">
 
-        <div class="flex flex-row my-6 justify-between border-solid border-2 border-gray-300 rounded-3xl">
 
-            <div class="border-solid w-1/3 border-2 border-black rounded-2xl p-2 mx-4">
-                <div class="flex-shrink-0">
-                    <img src="{{url('storage/images_report/jalan rusak.jpg')}}" alt="Gambar"
-                        class="rounded-xl h-36 w-72 object-cover object-center overflow-hidden">
+    <div
+        class="container max-w-5xl mx-auto text-gray-600 items-center min-h-screen gap-4 flex-wrap flex justify-center items-center">
+        @if(count($report) > 0)
+        <p class="text-center text-2xl text-birutua font-bold w-full">Laporan Masyarakat</p>
+
+        <!-- Link To PopUp -->
+        @foreach ($report as $report)
+        <a href="">
+            <div
+                class="w-60 p-2 mx-1 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl">
+                <!-- Image -->
+                <img class="h-30 object-cover rounded-xl h-36 w-full overflow-hidden" h-40 object-cover rounded-xl"
+                    src="{{url('storage/images_report/'.$report->images)}}" alt="">
+                <div class="p-2 overflow-hidden h-48">
+                    <!-- Heading -->
+                    <h2 class="font-bold text-lg mb-0 ">{{ $report->title }}</h2>
+                    <!-- Description -->
+                    <p class="text-sm text-justify mb-2 text-ellipsis">{{ $report->message }}</p>
                 </div>
-
-                <div class="relative text-left mx-1 text-gray-600">
-                    <div class="overflow-hidden h-52">
-                        <h2 class="text-md text-left font-bold pt-2">Laman Judul</h2>
-                        <p class="text-sm text-justify text-ellipsis ">Lorem ipsum dolor sit, amet consectetur
-                            adipisicing elit. Quam quo distinctio possimus optio hic deserunt quisquam nisi quasi
-                            aspernatur autem maxime, consequuntur aperiam esse voluptatibus ab repellat? Veritatis, rem
-                            sequi.</p>
+                <div class="m-2 flex flex-row w-auto">
+                    <!-- Status -->
+                    <div class=" text-white text-xs w-auto bg-purple-600 px-3 py-1 rounded-xl">
+                        {{ $report->status }}
                     </div>
-                    <div class="absolute bottom-0 text-xs font-bold items-end flex flex-row w-full">
-                        <span class="w-auto bg-green-500 text-white px-3 py-1 rounded-3xl ">Terkirim</span>
-                        <span class="w-full text-gray-400 text-xs font-thin py-1 text-right">2 feb 2020</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="border-solid w-1/3 border-2 border-black rounded-2xl p-2 mx-4">
-                <div class="flex-shrink-0">
-                    <img src="{{url('storage/images_report/jalan rusak.jpg')}}" alt="Gambar"
-                        class="rounded-xl h-36 w-72 object-cover object-center overflow-hidden">
-                </div>
-
-                <div class="relative text-left mx-1 text-gray-600">
-                    <div class="overflow-hidden ">
-                        <h2 class="text-md text-left font-bold pt-2">Laman Judul</h2>
-                        <p class="text-sm text-justify text-ellipsis h-28">Lorem ipsum dolor sit, amet consectetur
-                            adipisicing elit. Quam quo distinctio possimus optio hic deserunt quisquam nisi quasi
-                            aspernatur autem maxime, consequuntur aperiam esse voluptatibus ab repellat? Veritatis, rem
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla molestias placeat error
-                            eligendi ipsa, sapiente in dolor, pariatur ipsum vero, ex quia hic aliquam commodi quis
-                            fugiat repellat id porro.
-                            sequi.</p>
-                    </div>
-                    <div class="absolute bottom-0 text-xs font-bold items-end flex flex-row w-full">
-                        <span class="w-auto bg-green-500 text-white px-3 py-1 rounded-3xl ">Terkirim</span>
-                        <span class="w-full text-gray-400 text-xs font-thin py-1 text-right">2 feb 2020</span>
+                    <!-- Created At -->
+                    <div class="w-full text-gray-400 text-xs font-thin py-1 text-right">
+                        {{ \Carbon\Carbon::parse($report->created_at)->format('d M Y') }}
                     </div>
                 </div>
             </div>
-
-            <div class="border-solid w-1/3 border-2 border-black rounded-2xl p-2 mx-4">
-                <div class="flex-shrink-0">
-                    <img src="{{url('storage/images_report/jalan rusak.jpg')}}" alt="Gambar"
-                        class="rounded-xl h-36 w-72 object-cover object-center overflow-hidden">
-                </div>
-
-                <div class="relative text-left mx-1 text-gray-600">
-                    <div class="overflow-hidden h-52">
-                        <h2 class="text-md text-left font-bold pt-2">Laman Judul</h2>
-                        <p class="text-sm text-justify text-ellipsis ">Lorem ipsum dolor sit, amet consectetur
-                            adipisicing elit. Quam quo distinctio possimus optio hic deserunt quisquam nisi quasi
-                            aspernatur autem maxime, consequuntur aperiam esse voluptatibus ab repellat? Veritatis, rem
-                            sequi.</p>
-                    </div>
-                    <div class="absolute bottom-0 text-xs font-bold items-end flex flex-row w-full">
-                        <span class="w-auto bg-green-500 text-white px-3 py-1 rounded-3xl ">Terkirim</span>
-                        <span class="w-full text-gray-400 text-xs font-thin py-1 text-right">2 feb 2020</span>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-
-
-
+        </a>
+        @endforeach
+        @endif
     </div>
+
 </section>
+
+</div>
 @endsection
