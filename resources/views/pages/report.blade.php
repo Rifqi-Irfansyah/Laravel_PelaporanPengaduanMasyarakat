@@ -10,15 +10,16 @@
             aria-current="page">Dashboard</a>
 
         @if (auth()->user()->role=="user")
-        <a href="{{ route('report') }}" class="hover:bg-birutua rounded-3xl px-3 py-2 text-sm bg-birutua">Create
-            Report</a>
+        <a href="{{ route('report') }}" class="hover:bg-birutua rounded-3xl px-3 py-2 text-sm bg-birutua">Create Report</a>
         <a href="{{ route('your_report') }}"
             class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Your Report</a>
-
         @endif
 
         @if (in_array(auth()->user()->role, ["admin", "office"]))
-        <a href="{{ route('preview_report') }}" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Review Report</a>
+        <a href="{{ route('preview_report') }}"
+            class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Review Report</a>
+        <a href="{{ route('validated') }}"
+            class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Validated Report</a>
         @endif
 
         <a href="#" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">About
@@ -74,7 +75,8 @@
                     </label>
                     <input
                         class="appearance-none block w-full bg-gray-100 text-gray-700 border text-sm border-gray-200 rounded-2xl py-3 px-4 mb-3 leading-tight focus:outline-birutua focus:bg-white"
-                        id="title_report" name="title_report" type="text" required placeholder="Judul Pengaduan" autocomplete="off">
+                        id="title_report" name="title_report" type="text" required placeholder="Judul Pengaduan"
+                        autocomplete="off">
                 </div>
             </div>
 
@@ -115,7 +117,7 @@
                     <label class="block tracking-wide text-gray-700 text-sm font-bold mb-1" for="image_report">
                         Image
                     </label>
-                    <input  
+                    <input
                         class="mt-1 text-sm text-gray-600 w-full bg-gray-100 py-2 rounded-2xl file:border-gray-200 file:text-xs file:font-bold file:bg-gray-200 file:rounded-xl file:px-2 file:mx-3 file:py-1"
                         id="image_report" name="image_report" type="file" accept="image/*" required>
                 </div>

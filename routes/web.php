@@ -39,3 +39,5 @@ Route::get('/yourreport', 'YourReportController@index')->name('your_report')->mi
 Route::get('/previewreport', 'PreviewReportController@index')->name('preview_report')->middleware('adminOffice');
 
 Route::put('/previewreport/{id}/update', 'PreviewReportController@updateStatus')->name('update_status_report')->middleware('adminOffice');
+
+Route::get('/as', 'ValidatedReportController@index')->name('validated')->middleware('adminOffice');

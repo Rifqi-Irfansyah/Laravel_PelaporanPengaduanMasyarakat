@@ -5,8 +5,7 @@
 @section('navbar')
 <div class="hidden sm:ml-6 sm:block">
     <div class="flex space-x-4 font-medium">
-        <a href="/" class="hover:bg-birutua text-white rounded-3xl px-3 py-2 text-sm bg-birutua"
-            aria-current="page">Dashboard</a>
+        <a href="/" class="hover:bg-birutua text-white rounded-3xl px-3 py-2 text-sm bg-birutua" aria-current="page">Dashboard</a>
 
         @if (auth()->user()->role=="user")
         <a href="{{ route('report') }}"
@@ -16,7 +15,10 @@
         @endif
 
         @if (in_array(auth()->user()->role, ["admin", "office"]))
-        <a href="{{ route('preview_report') }}" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Review Report</a>
+        <a href="{{ route('preview_report') }}"
+            class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Review Report</a>
+        <a href="{{ route('validated') }}"
+            class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Validated Report</a>
         @endif
 
         <a href="#" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">About
@@ -188,4 +190,3 @@
     </div>
 </section>
 @endsection
-
