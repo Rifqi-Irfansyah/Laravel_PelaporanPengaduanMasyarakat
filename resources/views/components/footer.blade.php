@@ -58,10 +58,12 @@
                 <p class="uppercase text-white md:mb-6">Assets</p>
                 <ul class="list-reset mb-6">
                     <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                        <a href="https://www.freepik.com/" class="no-underline text-gray-700 hover:text-white">Freepik</a>
+                        <a href="https://www.freepik.com/"
+                            class="no-underline text-gray-700 hover:text-white">Freepik</a>
                     </li>
                     <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                        <a href="https://lottiefiles.com/" class="no-underline text-gray-700 hover:text-white">Lottie Files</a>
+                        <a href="https://lottiefiles.com/" class="no-underline text-gray-700 hover:text-white">Lottie
+                            Files</a>
                     </li>
                     <li class="mt-2 inline-block mr-2 md:block md:mr-0">
                         <a href="#" class="no-underline text-gray-700 hover:text-white">Flaticon</a>
@@ -75,7 +77,7 @@
 <!-- jQuery if you need it
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   -->
-<script>
+<!-- <script>
 var scrollpos = window.scrollY;
 var header = document.getElementById("header");
 var navcontent = document.getElementById("nav-content");
@@ -157,7 +159,7 @@ function checkParent(t, elm) {
     }
     return false;
 }
-</script>
+</script> -->
 </body>
 
 </html>

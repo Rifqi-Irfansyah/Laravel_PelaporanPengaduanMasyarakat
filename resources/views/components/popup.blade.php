@@ -2,26 +2,28 @@
 <!-- POP UP VALIDATE SEND REPORT -->
 <script>
 const form = document.querySelector('form');
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    Swal.fire({
-        title: 'Are you sure, will send report?',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: ' Yes ',
-        cancelButtonText: ' No ',
-        customClass: {
-            popup: 'background',
-            confirmButton: 'btn-confirm',
-            cancelButton: 'btn-cancel',
-            title: 'title',
-        }
-    }).then((result) => {
-        if (result.isConfirmed) {
-            form.submit();
-        }
+if (form) {
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        Swal.fire({
+            title: 'Are you sure, will send report?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: ' Yes ',
+            cancelButtonText: ' No ',
+            customClass: {
+                popup: 'background',
+                confirmButton: 'btn-confirm',
+                cancelButton: 'btn-cancel',
+                title: 'title',
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit();
+            }
+        })
     })
-})
+}
 
 // Pop Up Error Validate Report
 @if($errors -> any())
