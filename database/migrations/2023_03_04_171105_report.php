@@ -32,6 +32,7 @@ return new class extends Migration
         });
 
         // Create Stored Procedures
+        DB::statement('DROP PROCEDURE IF EXISTS `get_all_reports`');
         DB::statement('
             CREATE PROCEDURE `get_all_reports` ()
             BEGIN
@@ -39,6 +40,7 @@ return new class extends Migration
             END
         ');
 
+        DB::statement('DROP PROCEDURE IF EXISTS `get_reports_by_user`');
         DB::statement('
             CREATE PROCEDURE `get_reports_by_user` (IN `user_id` INT)
             BEGIN
@@ -47,13 +49,14 @@ return new class extends Migration
         ');
 
         // Select Report by Status & Get Messages
+        DB::statement('DROP PROCEDURE IF EXISTS `get_reports_by_status`');
         DB::statement('
             CREATE PROCEDURE `get_reports_by_status` (IN `input_status` ENUM("Terkirim", "Proses", "Selesai") COLLATE utf8mb4_unicode_ci)
             BEGIN
 
             SELECT 
                 report.*, 
-                GROUP_CONCAT("<h4>",comment.comment, "</h4><br><h3> - oleh ", users.name SEPARATOR "<br>") AS comments,
+                GROUP_CONCAT(comment.comment, "<br>oleh :", users.name SEPARATOR "<br>") AS comments,
                 COUNT(comment.comment) AS total_comment
             FROM report
             LEFT JOIN comment ON report.id_pengaduan = comment.id_pengaduan
@@ -64,6 +67,7 @@ return new class extends Migration
             END
         ');
 
+        DB::statement('DROP PROCEDURE IF EXISTS `update_record`');
         DB::statement('
             CREATE PROCEDURE update_record(IN `record_id` INT, IN `new_status` ENUM("Terkirim", "Proses", "Selesai"))
             BEGIN
