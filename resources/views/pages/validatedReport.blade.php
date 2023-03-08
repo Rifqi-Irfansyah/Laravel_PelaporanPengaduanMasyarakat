@@ -56,13 +56,13 @@
     <div
         class="container max-w-5xl mx-auto text-gray-600 items-center min-h-screen gap-4 flex-wrap flex justify-center items-center">
         @if(count($report) > 0)
-        <p class="text-center text-2xl text-birutua font-bold w-full">Laporan Masyarakat</p>
+        <p class="text-center text-2xl text-birutua font-bold w-full">Laporan Tervalidasi</p>
 
         <!-- Card Report -->
         @foreach ($report as $report)
         <!-- Link To PopUp -->
         <button
-            onclick="showPopup('{{ $report->id_pengaduan }}', '{{ $report->title }}', '{{ $report->destination_agency }}', '{{ \Carbon\Carbon::parse($report->created_at)->format('d M Y') }}', '{{ $report->status }}', {{ json_encode($report->message) }})">
+            onclick="showPopupValidated('{{ $report->id_pengaduan }}', '{{ $report->title }}', '{{ $report->destination_agency }}', '{{ \Carbon\Carbon::parse($report->created_at)->format('d M Y') }}', '{{ $report->status }}', {{ json_encode($report->message) }})">
             <div
                 class="w-72 p-2 mx-1 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl">
                 <!-- Image -->
@@ -76,7 +76,7 @@
                 </div>
                 <div class="m-2 flex flex-row w-auto">
                     <!-- Status -->
-                    <div class=" text-white text-xs w-auto bg-birutua px-3 py-1 rounded-xl">
+                    <div class=" text-white text-xs w-auto bg-hijau px-3 py-1 rounded-xl">
                         {{ $report->status }}
                     </div>
                     <!-- Created At -->

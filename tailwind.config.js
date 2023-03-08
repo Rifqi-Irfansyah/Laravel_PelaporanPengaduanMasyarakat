@@ -19,6 +19,9 @@ module.exports = {
         kuning: {
           DEFAULT: '#F8C300',
         },
+        hijau: {
+          DEFAULT: '#32CD32',
+        },
         merah: {
           DEFAULT: '#B81313',
         }

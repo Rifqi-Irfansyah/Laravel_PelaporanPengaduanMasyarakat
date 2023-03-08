@@ -56,7 +56,7 @@ Swal.fire({
 @endif
 
 
-// Pop Up Preview Report
+// Pop Up Card Review Report
 // Detail Report
 function showPopup(id, title, destination, date_create, status, message) {
     Swal.fire({
@@ -79,7 +79,7 @@ function showPopup(id, title, destination, date_create, status, message) {
             popup: 'background-preview',
             title: 'title-preview',
             confirmButton: 'btn-confirm-preview',
-            cancelButton: 'btn-cancel-preview',
+            cancelButton: 'btn-comment',
         }
     }).then((result) => {
         // validate the report and than change status to process
@@ -153,6 +153,57 @@ function showPopup(id, title, destination, date_create, status, message) {
                 }
             });
 
+        }
+    })
+}
+
+// Popup Validated Card
+// Detail Report
+function showPopupValidated(id, title, destination, date_create, status, message) {
+    Swal.fire({
+        title: title,
+        html: '<div class="text-base text-left">' +
+            '<p>Kepada: ' + destination + '</p>' +
+            '<p>Dibuat: ' + date_create + '</p>' +
+            '<p>Status: ' + status + '</p><br>' +
+            '</div>' +
+            '<p class="text-base text-justify">' + message + '</p>',
+        scrollbarPadding: true,
+        showCloseButton: true,
+        confirmButtonText: 'Comment',
+        maxHeight: '100vh',
+        customClass: {
+            popup: 'background-preview',
+            title: 'title-preview',
+            confirmButton: 'btn-comment',
+        }
+    }).then((result) => {
+        // validate the report and than change status to process
+        if (result.isConfirmed) {
+            // Confirmation validate the report
+            Swal.fire({
+                title: 'Enter Comment',
+                input: 'text',
+                inputPlaceholder: 'Masukkan tanggapan',
+                inputAttributes: {
+                    autocapitalize: 'off',
+                },
+                showCancelButton: true,
+                confirmButtonText: 'Submit',
+                cancelButtonText: 'Cancel',
+                customClass: {
+                    input: 'input-text',
+                    popup: 'background',
+                    title: 'title',
+                    confirmButton: 'btn-confirm',
+                    cancelButton: 'btn-cancel',
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const name = result.value;
+                    // Perform some action here based on the input value
+                }
+            });
         }
     })
 }
