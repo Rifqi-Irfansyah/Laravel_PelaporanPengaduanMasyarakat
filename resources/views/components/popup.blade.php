@@ -210,12 +210,11 @@ function showPopupValidated(id, title, destination, date_create, status, message
 
 function showPopupComment(title,comment) {
     Swal.fire({
-        title: 'Tanggapan Laporan <br>' + title + 'ca',
-        html: '<p class="text-justify">' + comment + '</p>',
+        title: 'Tanggapan Laporan <br>' + title,
+        html: '<div class="text-justify">' + comment + '</div>',
         scrollbarPadding: true,
         showCloseButton: true,
         confirmButtonText: 'Comment',
-        maxHeight: '100vh',
         customClass: {
             popup: 'background-preview',
             title: 'title-preview',

@@ -16,7 +16,7 @@ return new class extends Migration
         // Create Schema Database 
         Schema::create('comment', function (Blueprint $table) {
             $table->id('id_comment');
-            $table->string('comment');
+            $table->string('comment', 1000);
 
             // table relation id_pengaduan
             $table->unsignedBigInteger('id_pengaduan');

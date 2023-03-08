@@ -56,7 +56,7 @@ return new class extends Migration
 
             SELECT 
                 report.*, 
-                GROUP_CONCAT(comment.comment, "<br>oleh :", users.name SEPARATOR "<br>") AS comments,
+                GROUP_CONCAT(comment.comment, "<br>Oleh : ", users.name SEPARATOR "<hr><br>") AS comments,
                 COUNT(comment.comment) AS total_comment
             FROM report
             LEFT JOIN comment ON report.id_pengaduan = comment.id_pengaduan

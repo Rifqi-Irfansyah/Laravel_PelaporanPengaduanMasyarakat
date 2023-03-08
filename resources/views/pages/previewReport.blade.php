@@ -66,7 +66,7 @@
             class="w-72 p-2 mx-1 bg-white rounded-xl transform transition-all duration-300 shadow-lg hover:shadow-2xl relative">
             <!-- Comment -->
             @if( $report->total_comment >0)
-            <button class="absolute top-0 right-0 bg-kuning text-white rounded-full transition-all hover:scale-110 px-2"
+            <button class="absolute top-0 right-0 bg-kuning text-white text-bash rounded-full transition-all hover:scale-110 px-2"
                 onclick="showPopupComment('{{ $report->title }}','{{ $report->comments }}')">{{ $report->total_comment }}</button>
             @endif
             <!-- Image -->
