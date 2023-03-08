@@ -207,4 +207,20 @@ function showPopupValidated(id, title, destination, date_create, status, message
         }
     })
 }
+
+function showPopupComment(title,comment) {
+    Swal.fire({
+        title: 'Tanggapan Laporan <br>' + title + 'ca',
+        html: '<p class="text-justify">' + comment + '</p>',
+        scrollbarPadding: true,
+        showCloseButton: true,
+        confirmButtonText: 'Comment',
+        maxHeight: '100vh',
+        customClass: {
+            popup: 'background-preview',
+            title: 'title-preview',
+            confirmButton: 'btn-comment',
+        }
+    })
+}
 </script>

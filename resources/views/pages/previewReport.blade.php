@@ -17,7 +17,8 @@
         @endif
 
         @if (in_array(auth()->user()->role, ["admin", "office"]))
-        <a href="{{ route('preview_report') }}" class="bg-birutua text-white rounded-3xl px-3 py-2 text-sm">Review Report</a>
+        <a href="{{ route('preview_report') }}" class="bg-birutua text-white rounded-3xl px-3 py-2 text-sm">Review
+            Report</a>
         <a href="{{ route('validated') }}"
             class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Validated Report</a>
         @endif
@@ -61,31 +62,34 @@
         <!-- Card Report -->
         @foreach ($report as $report)
         <!-- Link To PopUp -->
-        <button
-            onclick="showPopup('{{ $report->id_pengaduan }}', '{{ $report->title }}', '{{ $report->destination_agency }}', '{{ \Carbon\Carbon::parse($report->created_at)->format('d M Y') }}', '{{ $report->status }}', {{ json_encode($report->message) }})">
-            <div
-                class="w-72 p-2 mx-1 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl">
-                <!-- Image -->
-                <img class="h-30 object-cover rounded-xl h-36 w-full overflow-hidden" h-40 object-cover rounded-xl"
-                    src="{{url('storage/images_report/'.$report->images)}}" alt="">
-                <div class="p-2 overflow-hidden h-48">
-                    <!-- Heading -->
-                    <h2 class="font-bold text-lg mb-0 leading-6">{{ $report->title }}</h2>
-                    <!-- Description -->
-                    <p class="text-sm text-justify mb-2 text-ellipsis leading-0">{{ $report->message }}</p>
-                </div>
-                <div class="m-2 flex flex-row w-auto">
-                    <!-- Status -->
-                    <div class=" text-white text-xs w-auto bg-birutua px-3 py-1 rounded-xl">
-                        {{ $report->status }}
-                    </div>
-                    <!-- Created At -->
-                    <div class="w-full text-gray-400 text-xs font-thin py-1 text-right">
-                        {{ \Carbon\Carbon::parse($report->created_at)->format('d M Y') }}
-                    </div>
+        <div
+            class="w-72 p-2 mx-1 bg-white rounded-xl transform transition-all duration-300 shadow-lg hover:shadow-2xl relative">
+            <!-- Comment -->
+            @if( $report->total_comment >0)
+            <button class="absolute top-0 right-0 bg-kuning text-white rounded-full transition-all hover:scale-110 px-2"
+                onclick="showPopupComment('{{ $report->title }}','{{ $report->comments }}')">{{ $report->total_comment }}</button>
+            @endif
+            <!-- Image -->
+            <img class="object-cover rounded-xl h-36 w-full overflow-hidden"
+                src="{{url('storage/images_report/'.$report->images)}}" alt="">
+            <div class="p-2 overflow-hidden h-48">
+                <!-- Heading -->
+                <h2 class="font-bold text-lg mb-0 leading-6">{{ $report->title }}</h2>
+                <!-- Description -->
+                <p class="text-sm text-justify mb-2 text-ellipsis leading-0">{{ $report->message }}</p>
+            </div>
+            <div class="m-2 flex flex-row w-auto">
+                <!-- Button Detail -->
+                <button class="text-white text-xs w-auto bg-birutua px-5 my-1 rounded-2xl hover:scale-105"
+                    onclick="showPopup('{{ $report->id_pengaduan }}', '{{ $report->title }}', '{{ $report->destination_agency }}', '{{ \Carbon\Carbon::parse($report->created_at)->format('d M Y') }}', '{{ $report->status }}', {{ json_encode($report->message) }})">
+                    Detail</button>
+                <!-- Status -->
+                <div class="w-full  text-xs font-thin py-1 text-right">
+                    <div class="text-birutua font-semibold font-md">{{ $report->status }}</div>
+                    <div class="text-gray-400">{{ \Carbon\Carbon::parse($report->created_at)->format('d M Y') }}</div>
                 </div>
             </div>
-        </button>
+        </div>
         @endforeach
 
         <!-- Handle empty data -->

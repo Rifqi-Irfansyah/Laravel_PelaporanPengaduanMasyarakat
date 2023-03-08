@@ -23,10 +23,9 @@ class PreviewReportController extends Controller
         DB::select('CALL update_record(?, ?)', array($id, $newValue));
 
         // Call the stored procedure again to fetch the updated data
-    // Call the stored procedure again to fetch the updated data
-    $report = DB::select('CALL get_reports_by_status(?)', ['Terkirim']);
+        $report = DB::select('CALL get_reports_by_status(?)', ['Terkirim']);
 
-    return response()->json(['success' => true, 'report' => $report]);
+        return response()->json(['success' => true, 'report' => $report]);
         
     }
 }

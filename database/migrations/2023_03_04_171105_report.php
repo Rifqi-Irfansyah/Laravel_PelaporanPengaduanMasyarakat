@@ -46,17 +46,28 @@ return new class extends Migration
             END
         ');
 
+        // Select Report by Status & Get Messages
         DB::statement('
-            CREATE PROCEDURE `get_reports_by_status` (IN `input_status` ENUM("Terkirim", "Proses", "Selesai"))
+            CREATE PROCEDURE `get_reports_by_status` (IN `input_status` ENUM("Terkirim", "Proses", "Selesai") COLLATE utf8mb4_unicode_ci)
             BEGIN
-                SELECT * FROM `report` WHERE `status` = `input_status` COLLATE utf8mb4_unicode_ci;
+
+            SELECT 
+                report.*, 
+                GROUP_CONCAT("<h4>",comment.comment, "</h4><br><h3> - oleh ", users.name SEPARATOR "<br>") AS comments,
+                COUNT(comment.comment) AS total_comment
+            FROM report
+            LEFT JOIN comment ON report.id_pengaduan = comment.id_pengaduan
+            LEFT JOIN users ON comment.id_user = users.id
+            WHERE status = `input_status`
+            GROUP BY report.id_pengaduan, report.id_user, report.title, report.message, report.destination_agency, report.created_at, report.images, report.status, report.incident_date, report.updated_at;
+
             END
         ');
 
         DB::statement('
             CREATE PROCEDURE update_record(IN `record_id` INT, IN `new_status` ENUM("Terkirim", "Proses", "Selesai"))
             BEGIN
-                UPDATE `report` SET `status` = `new_status` WHERE id_pengaduan = `record_id`;
+                UPDATE `report` SET `status` = `new_status`, `updated_at` = NOW() WHERE id_pengaduan = `record_id`;
             END
         ');
     }

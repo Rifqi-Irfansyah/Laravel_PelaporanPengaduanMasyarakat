@@ -89,7 +89,7 @@
     <div class="sm:hidden" id="mobile-menu">
         <div class="space-y-1 pt-2 pb-3 hidden">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
+            <a href="#" class="bg-gray-900 p text-white block rounded-md px-3 py-2 text-base font-medium"
                 aria-current="page">Role: {{ Auth::user()->role }}</a>
 
             <a href="#"
