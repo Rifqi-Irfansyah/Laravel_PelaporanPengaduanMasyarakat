@@ -64,7 +64,7 @@ class ReportSeeder extends Seeder
                 yang memadai untuk mempermudah dalam menangani tindakan kejahatan. Terima kasih atas perhatian yang diberikan. Hormat saya, Adzan',
                 'destination_agency'=>'Kepolisian Cimahi Tengah',
                 'images'=>'keamanan.jpg',
-                'status'=>'Proses',
+                'status'=>'Terkirim',
                 'incident_date'=>'2023-03-06 06:59:19',
                 'created_at' => now(),
             ],

@@ -87,6 +87,13 @@
             </div>
         </button>
         @endforeach
+
+        <!-- Handle empty data -->
+        @else
+        <div class="text-center items-center p-5">
+            <img class="max-w-xl mx-auto" src="{{asset('images/ilustration_empty.png')}}" alt="#">
+            <p class="text-gray-600 text-2xl font-bold mt-16">Oops, saat ini tidak ada laporan yang tervalidasi</p>
+        </div>
         @endif
     </div>
 

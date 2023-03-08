@@ -76,11 +76,12 @@
             </div>
         </div>
         @endforeach
+        
+        <!-- Handle empty data -->
         @else
-
         <div class="text-center items-center p-5">
             <img class="max-w-xl mx-auto" src="{{asset('images/ilustration_empty.png')}}" alt="#">
-            <p class="text-gray-600 text-2xl font-bold pt-5">Ooops Anda Belum Membuat Laporan</p>
+            <p class="text-gray-600 text-2xl font-bold pt-5">Ooops, Anda belum membuat laporan</p>
             <a href="{{ route('report') }}">
                 <button
                     class="py-2 mt-2 px-5 bg-birutua text-white text-sm border rounded-2xl hover:scale-105 duration-300">Buat
