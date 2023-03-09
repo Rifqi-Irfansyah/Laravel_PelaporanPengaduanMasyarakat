@@ -58,7 +58,7 @@ Swal.fire({
 
 // Pop Up Card Review Report
 // Detail Report
-function showPopup(id, title, destination, date_create, status, message) {
+function showPopup(id, title, destination, date_create, status, message, id_user) {
     Swal.fire({
         title: title,
         html: '<div class="text-base text-left">' +
@@ -123,7 +123,6 @@ function showPopup(id, title, destination, date_create, status, message) {
                         })
                 }
             })
-
         }
 
         // comment the report 
@@ -147,8 +146,31 @@ function showPopup(id, title, destination, date_create, status, message) {
                 }
             }).then((result) => {
                 if (result.isConfirmed) {
-                    const name = result.value;
-                    // Perform some action here based on the input value
+                    // Value input comment
+                    const input_comment = result.value;
+                    // Update Status Record
+                    axios.put('/comment/insert/' + id, {
+                            view_comment: input_comment,
+                            view_id_user: id_user,
+                        })
+                        .then(response => {
+                            // Popup Success
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Tanggapan Ditambahkan',
+                                timer: 1500,
+                                timerProgressBar: true,
+                                showConfirmButton: false,
+                                customClass: {
+                                    popup: 'background',
+                                    title: 'title',
+                                }
+                            });
+                            // Refresh Page
+                            setTimeout(function() {
+                                location.reload();
+                            }, 1400);
+                        })
                 }
             });
 
@@ -158,7 +180,7 @@ function showPopup(id, title, destination, date_create, status, message) {
 
 // Popup Validated Card
 // Detail Report
-function showPopupValidated(id, title, destination, date_create, status, message) {
+function showPopupValidated(id, title, destination, date_create, status, message, id_user) {
     Swal.fire({
         title: title,
         html: '<div class="text-base text-left">' +
@@ -198,8 +220,32 @@ function showPopupValidated(id, title, destination, date_create, status, message
                 }
             }).then((result) => {
                 if (result.isConfirmed) {
-                    const name = result.value;
-                    // Perform some action here based on the input value
+                    // Value input comment
+                    const input_comment = result.value;
+                    // Update Status Record
+                    axios.put('/comment/insert/' + id, {
+                            view_comment: input_comment,
+                            view_id_user: id_user,
+                        })
+                        .then(response => {
+                            // Popup Success
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Tanggapan Ditambahkan',
+                                timer: 1500,
+                                timerProgressBar: true,
+                                showConfirmButton: false,
+                                customClass: {
+                                    popup: 'background',
+                                    title: 'title',
+                                }
+                            });
+                            // Refresh Page
+                            setTimeout(function() {
+                                location.reload();
+                            }, 1400);
+                        })
+
                 }
             });
         }
@@ -228,7 +274,7 @@ function showPopupMyReport(id, title, destination, date_create, status, message)
     })
 }
 
-function showPopupComment(title,comment) {
+function showPopupComment(title, comment) {
     Swal.fire({
         title: 'Tanggapan Laporan <br>' + title,
         html: '<div class="text-justify">' + comment + '</div>',

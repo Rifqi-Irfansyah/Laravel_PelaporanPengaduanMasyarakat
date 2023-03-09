@@ -28,18 +28,19 @@ Route::get('logoutaksi', 'LoginController@logoutaksi')->name('logoutaksi')->midd
 
 
 // Akses Pengguna
-Route::get('/report', 'ReportController@index')->name('report')->middleware('user');
-
-Route::post('/report', 'ReportController@submit')->name('submit_report')->middleware('user');
-
-Route::get('/yourreport', 'YourReportController@index')->name('your_report')->middleware('user');
+Route::middleware('user')->group(function () {
+    Route::get('/report', 'ReportController@index')->name('report');
+    Route::post('/report', 'ReportController@submit')->name('submit_report');
+    Route::get('/yourreport', 'YourReportController@index')->name('your_report');
+ }); 
 
 
 // Akses Admin & Office
-Route::get('/preview/report', 'PreviewReportController@index')->name('preview_report')->middleware('adminOffice');
-
-Route::put('/preview/report/{id}/update', 'PreviewReportController@updateStatus')->name('update_status_report')->middleware('adminOffice');
-
-Route::get('/validated/report', 'ValidatedReportController@index')->name('validated')->middleware('adminOffice');
-
-Route::get('/done/report', 'DoneReportController@index')->name('done_report')->middleware('adminOffice');
+Route::middleware('adminOffice')->group(function () {
+    Route::get('/preview/report', 'PreviewReportController@index')->name('preview_report');
+    Route::put('/preview/report/{id}/update', 'PreviewReportController@updateStatus')->name('update_status_report');
+    Route::put('/comment/insert/{id}', 'PreviewReportController@insertComment')->name('insert_comment');
+    Route::get('/validated/report', 'ValidatedReportController@index')->name('validated');
+    Route::get('/done/report', 'DoneReportController@index')->name('done_report');
+ });
+ 

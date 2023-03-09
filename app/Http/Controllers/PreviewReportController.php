@@ -20,12 +20,19 @@ class PreviewReportController extends Controller
         // Update Status
         $newValue = $request->input('new_value');
         
-        DB::select('CALL update_record(?, ?)', array($id, $newValue));
+        DB::statement('CALL update_record(?, ?)', array($id, $newValue));
 
-        // Call the stored procedure again to fetch the updated data
-        $report = DB::select('CALL get_reports_by_status(?)', ['Terkirim']);
+        return response()->json(['success' => true]);
+    }
 
-        return response()->json(['success' => true, 'report' => $report]);
+    public function insertComment(Request $request, $id)
+    {
+        // Insert Comments
+        $comment = $request->input('view_comment');
+        $id_user = $request->input('view_id_user');
         
+        DB::statement('CALL insert_comment(?, ?, ?)', array($comment, $id, $id_user));
+
+        return response()->json(['success' => true]);
     }
 }

@@ -32,6 +32,19 @@ return new class extends Migration
             $table->timestamps();
 
         });
+
+        // Create Stored Procedures
+        DB::statement('DROP PROCEDURE IF EXISTS `insert_comment`');
+        DB::statement('
+        CREATE PROCEDURE `insert_comment`(
+          IN `comment` VARCHAR(1000),
+          IN `id_pengaduan` BIGINT,
+          IN `id_user` BIGINT)
+          BEGIN
+              INSERT INTO `comment` (`comment`, `id_pengaduan`, `id_user`, `created_at`, `updated_at`)
+              VALUES (comment, id_pengaduan, id_user, NOW(), NOW());
+          END;
+        ');
     }
 
     /**

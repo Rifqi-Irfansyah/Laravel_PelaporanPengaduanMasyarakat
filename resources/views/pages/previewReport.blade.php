@@ -21,7 +21,8 @@
             Report</a>
         <a href="{{ route('validated') }}"
             class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Validated Report</a>
-        <a href="{{ route('done_report') }}" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Done Report</a>
+        <a href="{{ route('done_report') }}"
+            class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Done Report</a>
         @endif
 
         <a href="#" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">About
@@ -67,7 +68,8 @@
             class="w-72 p-2 mx-1 bg-white rounded-xl transform transition-all duration-300 shadow-lg hover:shadow-2xl relative">
             <!-- Comment -->
             @if( $report->total_comment >0)
-            <button class="absolute top-0 right-0 bg-kuning text-white text-bash rounded-full transition-all hover:scale-110 px-2"
+            <button
+                class="absolute top-0 right-0 bg-kuning text-white text-bash rounded-full transition-all hover:scale-110 px-2"
                 onclick="showPopupComment('{{ $report->title }}','{{ $report->comments }}')">{{ $report->total_comment }}</button>
             @endif
             <!-- Image -->
@@ -82,7 +84,7 @@
             <div class="m-2 flex flex-row w-auto">
                 <!-- Button Detail -->
                 <button class="text-white text-xs w-auto bg-birutua px-5 my-1 rounded-2xl hover:scale-105"
-                    onclick="showPopup('{{ $report->id_pengaduan }}', '{{ $report->title }}', '{{ $report->destination_agency }}', '{{ \Carbon\Carbon::parse($report->created_at)->format('d M Y') }}', '{{ $report->status }}', {{ json_encode($report->message) }})">
+                    onclick="showPopup('{{ $report->id_pengaduan }}', '{{ $report->title }}', '{{ $report->destination_agency }}', '{{ \Carbon\Carbon::parse($report->created_at)->format('d M Y') }}', '{{ $report->status }}', {{ json_encode($report->message) }}, '{{ Auth::user()->id }}')">
                     Detail</button>
                 <!-- Status -->
                 <div class="w-full  text-xs font-thin py-1 text-right">
