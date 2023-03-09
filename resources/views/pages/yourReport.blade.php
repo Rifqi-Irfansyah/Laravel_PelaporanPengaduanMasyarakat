@@ -55,39 +55,50 @@
 
         @if(count($report) > 0)
         <p class="text-center text-2xl my-6 font-bold">Laporan Anda</p>
+
         @foreach ($report as $report)
+        <!-- Card Report -->
         <button
-            class="bg-white text-white rounded-3xl my-2 p-4 border-solid border-2 border-gray-300 transition-all hover:shadow-2xl"
+            class="bg-white text-white rounded-3xl my-2 p-4 border-solid border-2 border-gray-300 transition-all hover:shadow-2xl w-full"
             onclick="showPopupMyReport('{{ $report->id_pengaduan }}', '{{ $report->title }}', '{{ $report->destination_agency }}', '{{ \Carbon\Carbon::parse($report->created_at)->format('d M Y') }}', '{{ $report->status }}', {{ json_encode($report->message) }})">
             <div class="flex flex-row justify-between rounded-3xl">
                 <div class="w-auto flex-shrink-0">
+                    <!-- Image -->
                     <img src="{{url('storage/images_report/'.$report->images)}}" alt="Gambar"
                         class="rounded-xl h-48 w-72 object-cover object-center overflow-hidden">
                 </div>
 
                 <div class="relative w-full text-left ml-4 text-gray-600">
                     <div class="overflow-hidden h-40">
+                        <!-- Title -->
                         <h2 class="text-md text-left font-bold">{{ $report->title }}</h2>
+                        <!-- Message -->
                         <p class="text-sm text-justify text-ellipsis ">{{ $report->message }}</p>
                     </div>
                     <div class="absolute bottom-0 text-xs font-bold items-end flex flex-row w-full">
+                        <!-- Status -->
                         <span class="w-auto
-  @if($report->status == 'Proses')
-    bg-green-500
-  @elseif($report->status == 'Terkirim')
-    bg-birutua
-  @elseif($report->status == 'Sent')
-    bg-grey
-  @endif
-  text-white px-3 py-1 rounded-3xl"">{{ $report->status }}</span>
-                        <span
-                            class=" w-full text-gray-400 text-xs font-thin py-1
+                            @if($report->status == 'Terkirim') bg-birutua
+                            @elseif($report->status == 'Proses') bg-orange-400
+                            @elseif($report->status == 'Selesai') bg-green-600 @endif
+                            text-white px-3 py-1 rounded-3xl">{{ $report->status }}</span>
+                        <!-- Date -->
+                        <span class=" w-full text-gray-400 text-xs font-thin py-1
                             text-right">{{ \Carbon\Carbon::parse($report->created_at)->format('d M Y') }}</span>
-
                     </div>
                 </div>
             </div>
         </button>
+        <!-- Comment -->
+        @if( $report->total_comment >0)
+        <div class="w-full flex justify-end">
+            <button
+                class="bg-kuning text-white text-right text-sm rounded-full transition-all hover:scale-105 px-2 mb-6"
+                onclick="showPopupComment('{{ $report->title }}','{{ $report->comments }}')">{{ $report->total_comment }}
+                Comment</button>
+        </div>
+        @endif
+
         @endforeach
 
         <!-- Handle empty data -->

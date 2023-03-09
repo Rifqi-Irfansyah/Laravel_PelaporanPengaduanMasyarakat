@@ -237,11 +237,11 @@ function showPopupComment(title,comment) {
         html: '<div class="text-justify">' + comment + '</div>',
         scrollbarPadding: true,
         showCloseButton: true,
-        confirmButtonText: 'Comment',
+        confirmButtonText: 'Ok',
         customClass: {
             popup: 'background-preview',
             title: 'title-preview',
-            confirmButton: 'btn-comment',
+            confirmButton: 'btn-confirm',
         }
     })
 }
