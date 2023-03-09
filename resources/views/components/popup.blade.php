@@ -208,6 +208,29 @@ function showPopupValidated(id, title, destination, date_create, status, message
     })
 }
 
+// Detail Your Report
+function showPopupMyReport(id, title, destination, date_create, status, message) {
+    Swal.fire({
+        title: title,
+        html: '<div class="text-base text-left">' +
+            '<p>Kepada: ' + destination + '</p>' +
+            '<p>Dibuat: ' + date_create + '</p>' +
+            '<p>Status: ' + status + '</p><br>' +
+            '</div>' +
+            '<p class="text-base text-justify">' + message + '</p>',
+        scrollbarPadding: true,
+        showConfirmButton: false,
+        showCancelButton: true,
+        cancelButtonText: 'Close',
+        maxHeight: '100vh',
+        customClass: {
+            popup: 'background-preview',
+            title: 'title-preview',
+            cancelButton: 'btn-confirm',
+        }
+    })
+}
+
 function showPopupComment(title,comment) {
     Swal.fire({
         title: 'Tanggapan Laporan <br>' + title,
