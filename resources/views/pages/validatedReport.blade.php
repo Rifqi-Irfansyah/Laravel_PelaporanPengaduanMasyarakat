@@ -79,7 +79,7 @@
             </div>
             <div class="m-2 flex flex-row w-auto">
                 <!-- Button Detail -->
-                <button class="text-white text-xs w-auto bg-hijau px-5 my-1 rounded-2xl hover:scale-105"
+                <button class="text-white text-xs w-auto bg-orange-400 px-5 my-1 rounded-2xl hover:scale-105"
                     onclick="showPopupValidated('{{ $report->id_pengaduan }}', '{{ $report->title }}', '{{ $report->destination_agency }}', '{{ \Carbon\Carbon::parse($report->created_at)->format('d M Y') }}', '{{ $report->status }}', {{ json_encode($report->message) }})">
                     Detail</button>
                 <!-- Status -->
