@@ -44,7 +44,17 @@ return new class extends Migration
         DB::statement('
             CREATE PROCEDURE `get_reports_by_user` (IN `user_id` INT)
             BEGIN
-                SELECT * FROM `report` WHERE `id_user` = `user_id`;
+
+            SELECT
+                report.*, 
+                GROUP_CONCAT(comment.comment, "<br>Oleh : ", users.name SEPARATOR "<hr><br>") AS comments,
+                COUNT(comment.comment) AS total_comment
+            FROM report
+            LEFT JOIN comment ON report.id_pengaduan = comment.id_pengaduan
+            LEFT JOIN users ON comment.id_user = users.id
+            WHERE report.id_user = `user_id`
+            GROUP BY report.id_pengaduan, report.id_user, report.title, report.message, report.destination_agency, report.created_at, report.images, report.status, report.incident_date, report.updated_at;
+
             END
         ');
 
