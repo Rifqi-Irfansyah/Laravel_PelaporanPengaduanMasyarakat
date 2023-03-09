@@ -51,7 +51,7 @@
 @endsection
 
 @section('contain')
-<section class="bg-gray-100 border-b py-8">
+<section class="bg-offwhite border-b py-8">
     <div class="container max-w-3xl mx-auto text-birutua items-center">
 
         <p class="text-center text-2xl my-6 font-bold">Input Your Report</p>

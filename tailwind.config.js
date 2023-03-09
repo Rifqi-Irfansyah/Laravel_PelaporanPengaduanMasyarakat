@@ -10,6 +10,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        offwhite:{
+          DEFAULT: '#f4f4f4',
+        },
         birutua: {
           DEFAULT: '#758ABA',
         },
