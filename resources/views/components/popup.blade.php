@@ -74,7 +74,6 @@ function showPopup(id, title, destination, date_create, status, message) {
         cancelButtonColor: '#d33',
         confirmButtonText: 'Validate',
         cancelButtonText: 'Comment',
-        maxHeight: '100vh',
         customClass: {
             popup: 'background-preview',
             title: 'title-preview',
@@ -86,7 +85,7 @@ function showPopup(id, title, destination, date_create, status, message) {
         if (result.isConfirmed) {
             // Confirmation validate the report
             Swal.fire({
-                title: 'Yakin Ingin Memvalidasi Laporan<br>' + title,
+                title: 'Yakin Ingin Memvalidasi Laporan<br>' + title + '?',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonText: ' Yes ',
@@ -101,7 +100,7 @@ function showPopup(id, title, destination, date_create, status, message) {
                 // If Confirmation is agree
                 if (result.isConfirmed) {
                     // Update Status Record
-                    axios.put('/previewreport/' + id + '/update', {
+                    axios.put('/preview/report/' + id + '/update', {
                             new_value: 'Proses'
                         })
                         .then(response => {
@@ -171,7 +170,6 @@ function showPopupValidated(id, title, destination, date_create, status, message
         scrollbarPadding: true,
         showCloseButton: true,
         confirmButtonText: 'Comment',
-        maxHeight: '100vh',
         customClass: {
             popup: 'background-preview',
             title: 'title-preview',
@@ -222,7 +220,6 @@ function showPopupMyReport(id, title, destination, date_create, status, message)
         showConfirmButton: false,
         showCancelButton: true,
         cancelButtonText: 'Close',
-        maxHeight: '100vh',
         customClass: {
             popup: 'background-preview',
             title: 'title-preview',
