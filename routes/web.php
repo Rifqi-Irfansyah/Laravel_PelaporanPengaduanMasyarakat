@@ -36,8 +36,10 @@ Route::get('/yourreport', 'YourReportController@index')->name('your_report')->mi
 
 
 // Akses Admin & Office
-Route::get('/previewreport', 'PreviewReportController@index')->name('preview_report')->middleware('adminOffice');
+Route::get('/preview/report', 'PreviewReportController@index')->name('preview_report')->middleware('adminOffice');
 
-Route::put('/previewreport/{id}/update', 'PreviewReportController@updateStatus')->name('update_status_report')->middleware('adminOffice');
+Route::put('/preview/report/{id}/update', 'PreviewReportController@updateStatus')->name('update_status_report')->middleware('adminOffice');
 
-Route::get('/as', 'ValidatedReportController@index')->name('validated')->middleware('adminOffice');
+Route::get('/validated/report', 'ValidatedReportController@index')->name('validated')->middleware('adminOffice');
+
+Route::get('/done/report', 'DoneReportController@index')->name('done_report')->middleware('adminOffice');

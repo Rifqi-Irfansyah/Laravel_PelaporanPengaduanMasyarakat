@@ -80,7 +80,7 @@
                         <span class="w-auto
                             @if($report->status == 'Terkirim') bg-birutua
                             @elseif($report->status == 'Proses') bg-orange-400
-                            @elseif($report->status == 'Selesai') bg-green-600 @endif
+                            @elseif($report->status == 'Selesai') bg-green-500 @endif
                             text-white px-3 py-1 rounded-3xl">{{ $report->status }}</span>
                         <!-- Date -->
                         <span class=" w-full text-gray-400 text-xs font-thin py-1

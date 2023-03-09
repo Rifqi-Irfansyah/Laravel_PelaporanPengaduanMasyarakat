@@ -18,9 +18,9 @@
 
         @if (in_array(auth()->user()->role, ["admin", "office"]))
         <a href="{{ route('preview_report') }}" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Review Report</a>
-        <a href="{{ route('validated') }}"
-            class="bg-birutua text-white rounded-3xl px-3 py-2 text-sm">Validated Report</a>
-        <a href="{{ route('done_report') }}" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Done Report</a>
+        <a href="{{ route('validated') }}" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Validated Report</a>
+        <a href="{{ route('done_report') }}"
+            class="bg-birutua text-white rounded-3xl px-3 py-2 text-sm">Done Report</a>
         @endif
 
         <a href="#" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">About
@@ -39,12 +39,12 @@
                 Laporan Masyarakat
             </h1>
             <p class="leading-normal text-2xl">
-                Laporan Masyarakat Yang Telah Tervalidasi Tertera Disini
+                Laporan Masyarakat Yang Telah Selesai Tertera Disini
             </p>
         </div>
         <!--Right Col-->
         <div class=" w-full md:w-3/5 pt-14 px-16">
-            <img class="w-full md:w-4/5 z-50" src="{{url('images/ilustration_succes.png')}}" />
+            <img class="w-full md:w-4/5 z-50" src="{{url('images/ilustration_send.png')}}" />
         </div>
     </div>
 </div>
@@ -80,7 +80,7 @@
             </div>
             <div class="m-2 flex flex-row w-auto">
                 <!-- Button Detail -->
-                <button class="text-white text-xs w-auto bg-orange-400 px-5 my-1 rounded-2xl hover:scale-105"
+                <button class="text-white text-xs w-auto bg-green-500 px-5 my-1 rounded-2xl hover:scale-105"
                     onclick="showPopupValidated('{{ $report->id_pengaduan }}', '{{ $report->title }}', '{{ $report->destination_agency }}', '{{ \Carbon\Carbon::parse($report->created_at)->format('d M Y') }}', '{{ $report->status }}', {{ json_encode($report->message) }})">
                     Detail</button>
                 <!-- Status -->
