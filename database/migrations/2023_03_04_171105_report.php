@@ -33,13 +33,8 @@ return new class extends Migration
 
         // Create Stored Procedures
         DB::statement('DROP PROCEDURE IF EXISTS `get_all_reports`');
-        DB::statement('
-            CREATE PROCEDURE `get_all_reports` ()
-            BEGIN
-                SELECT * FROM `report`;
-            END
-        ');
 
+        // Get DAta Own User & Get Messages
         DB::statement('DROP PROCEDURE IF EXISTS `get_reports_by_user`');
         DB::statement('
             CREATE PROCEDURE `get_reports_by_user` (IN `user_id` INT)
@@ -77,6 +72,7 @@ return new class extends Migration
             END
         ');
 
+        // Update Status Report
         DB::statement('DROP PROCEDURE IF EXISTS `update_record`');
         DB::statement('
             CREATE PROCEDURE update_record(IN `record_id` INT, IN `new_status` ENUM("Terkirim", "Proses", "Selesai"))
@@ -84,6 +80,16 @@ return new class extends Migration
                 UPDATE `report` SET `status` = `new_status`, `updated_at` = NOW() WHERE id_pengaduan = `record_id`;
             END
         ');
+
+        // Delete Own Report by User
+        DB::statement('DROP PROCEDURE IF EXISTS `delete_record`');
+        DB::statement('
+            CREATE PROCEDURE delete_record(IN `record_id` INT)
+            BEGIN
+                DELETE FROM `comment` WHERE `id_pengaduan` = `record_id`;
+                DELETE FROM `report` WHERE id_pengaduan = `record_id`;
+            END
+    ');
     }
 
     /**
