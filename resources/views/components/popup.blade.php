@@ -121,6 +121,20 @@ function showPopup(id, title, destination, date_create, status, message, id_user
                                 location.reload();
                             }, 1400);
                         })
+                        // Catch Error
+                        .catch(error => {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Gagal Memvalidasi Laporan',
+                                timer: 1500,
+                                timerProgressBar: true,
+                                showConfirmButton: false,
+                                customClass: {
+                                    popup: 'background',
+                                    title: 'title',
+                                }
+                            })
+                        });
                 }
             })
         }
@@ -171,6 +185,20 @@ function showPopup(id, title, destination, date_create, status, message, id_user
                                 location.reload();
                             }, 1400);
                         })
+                        // Catch Error
+                        .catch(error => {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Gagal Menambahkan Tanggapan',
+                                timer: 1500,
+                                timerProgressBar: true,
+                                showConfirmButton: false,
+                                customClass: {
+                                    popup: 'background',
+                                    title: 'title',
+                                }
+                            })
+                        });
                 }
             });
 
@@ -245,6 +273,20 @@ function showPopupValidated(id, title, destination, date_create, status, message
                                 location.reload();
                             }, 1400);
                         })
+                        // Catch Error
+                        .catch(error => {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Gagal Menambahkan Tanggapan',
+                                timer: 1500,
+                                timerProgressBar: true,
+                                showConfirmButton: false,
+                                customClass: {
+                                    popup: 'background',
+                                    title: 'title',
+                                }
+                            })
+                        });
 
                 }
             });
@@ -254,7 +296,7 @@ function showPopupValidated(id, title, destination, date_create, status, message
 
 // Detail Your Report
 function showPopupMyReport(id, title, destination, date_create, status, message) {
-    Swal.fire({
+    let popupOptions = {
         title: title,
         html: '<div class="text-base text-left">' +
             '<p>Kepada: ' + destination + '</p>' +
@@ -263,29 +305,93 @@ function showPopupMyReport(id, title, destination, date_create, status, message)
             '</div>' +
             '<p class="text-base text-justify">' + message + '</p>',
         scrollbarPadding: true,
-        showConfirmButton: false,
         showCancelButton: true,
+        showConfirmButton: false,
         cancelButtonText: 'Close',
         customClass: {
             popup: 'background-preview',
             title: 'title-preview',
             cancelButton: 'btn-confirm',
+            confirmButton: 'btn-cancel',
         }
-    })
-}
+    };
+    if (status === "Terkirim") {
+        popupOptions.showConfirmButton = true;
+        popupOptions.confirmButtonText = 'Delete';
+    }
 
-function showPopupComment(title, comment) {
-    Swal.fire({
-        title: 'Tanggapan Laporan <br>' + title,
-        html: '<div class="text-justify">' + comment + '</div>',
-        scrollbarPadding: true,
-        showCloseButton: true,
-        confirmButtonText: 'Ok',
-        customClass: {
-            popup: 'background-preview',
-            title: 'title-preview',
-            confirmButton: 'btn-confirm',
-        }
-    })
+    Swal.fire(popupOptions)
+        .then((result) => {
+            // If Click Delete
+            if (result.isConfirmed) {
+                // Confirmation Delete
+                Swal.fire({
+                        title: 'Yakin Ingin Menghapus Laporan<br>' + title + '?',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: ' Yes ',
+                        cancelButtonText: ' No ',
+                        customClass: {
+                            popup: 'background',
+                            confirmButton: 'btn-confirm',
+                            cancelButton: 'btn-cancel',
+                            title: 'title',
+                        }
+                    })
+                    .then((result) => {
+                        if (result.isConfirmed) {
+                            // Delete Axios
+                            axios.delete('/report/delete/' + id, {})
+                                .then(response => {
+                                    // Popup Success Delete
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Berhasil Menghapus Laporan',
+                                        timer: 1500,
+                                        timerProgressBar: true,
+                                        showConfirmButton: false,
+                                        customClass: {
+                                            popup: 'background',
+                                            title: 'title',
+                                        }
+                                    });
+                                    // Refresh Page
+                                    setTimeout(function() {
+                                        location.reload();
+                                    }, 1400);
+                                })
+                                // Catch Error
+                                .catch(error => {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Gagal Menghapus Laporan',
+                                        timer: 1500,
+                                        timerProgressBar: true,
+                                        showConfirmButton: false,
+                                        customClass: {
+                                            popup: 'background',
+                                            title: 'title',
+                                        }
+                                    })
+                                });
+                        }
+                    });
+            }
+
+            function showPopupComment(title, comment) {
+                Swal.fire({
+                    title: 'Tanggapan Laporan <br>' + title,
+                    html: '<div class="text-justify">' + comment + '</div>',
+                    scrollbarPadding: true,
+                    showCloseButton: true,
+                    confirmButtonText: 'Ok',
+                    customClass: {
+                        popup: 'background-preview',
+                        title: 'title-preview',
+                        confirmButton: 'btn-confirm',
+                    }
+                })
+            }
+        })
 }
 </script>

@@ -14,26 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'LoginController@login')->name('login');
-
 Route::post('login', 'LoginController@loginaksi')->name('loginaksi');
-
 Route::get('register', 'RegisterController@register')->name('register');
-
 Route::post('register', 'RegisterController@registeraksi')->name('registeraksi');
-
 Route::get('home', 'HomeController@index')->name('home')->middleware('auth');
-
 Route::get('logoutaksi', 'LoginController@logoutaksi')->name('logoutaksi')->middleware('auth');
-
-
 
 // Akses Pengguna
 Route::middleware('user')->group(function () {
     Route::get('/report', 'ReportController@index')->name('report');
     Route::post('/report', 'ReportController@submit')->name('submit_report');
     Route::get('/yourreport', 'YourReportController@index')->name('your_report');
- }); 
-
+    Route::delete('/report/delete/{id}', 'YourReportController@delete')->name('report_delete');
+}); 
 
 // Akses Admin & Office
 Route::middleware('adminOffice')->group(function () {
@@ -42,5 +35,5 @@ Route::middleware('adminOffice')->group(function () {
     Route::put('/comment/insert/{id}', 'PreviewReportController@insertComment')->name('insert_comment');
     Route::get('/validated/report', 'ValidatedReportController@index')->name('validated');
     Route::get('/done/report', 'DoneReportController@index')->name('done_report');
- });
+});
  
