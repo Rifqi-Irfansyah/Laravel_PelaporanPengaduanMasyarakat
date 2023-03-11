@@ -69,19 +69,5 @@ class ReportSeeder extends Seeder
                 'created_at' => now(),
             ],
         ]);
-
-
-        DB::table('comment')->insert([
-            [
-                'comment'=>'Kami atas nama [Instansi Terkait] mengucapkan terima kasih atas laporan pengaduan yang telah disampaikan',
-                'id_pengaduan'=>'3',
-                'id_user'=>'3',
-            ],
-            [
-                'comment'=>'Kami .',
-                'id_pengaduan'=>'2',
-                'id_user'=>'3',
-            ],
-        ]);
     }
 }

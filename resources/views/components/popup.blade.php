@@ -208,8 +208,9 @@ function showPopup(id, title, destination, date_create, status, message, id_user
 
 // Popup Validated Card
 // Detail Report
-function showPopupValidated(id, title, destination, date_create, status, message, id_user) {
-    Swal.fire({
+function showPopupValidated(id, title, destination, date_create, status, message, id_user, role) {
+    // Show popup options if role = admin Add Download Button
+    let popupOptions = {
         title: title,
         html: '<div class="text-base text-left">' +
             '<p>Kepada: ' + destination + '</p>' +
@@ -224,78 +225,99 @@ function showPopupValidated(id, title, destination, date_create, status, message
             popup: 'background-preview',
             title: 'title-preview',
             confirmButton: 'btn-comment',
+            cancelButton: 'btn-confirm',
         }
-    }).then((result) => {
-        // validate the report and than change status to process
-        if (result.isConfirmed) {
-            // Confirmation validate the report
-            Swal.fire({
-                title: 'Enter Comment',
-                input: 'text',
-                inputPlaceholder: 'Masukkan tanggapan',
-                inputAttributes: {
-                    autocapitalize: 'off',
-                },
-                showCancelButton: true,
-                confirmButtonText: 'Submit',
-                cancelButtonText: 'Cancel',
-                customClass: {
-                    input: 'input-text',
-                    popup: 'background',
-                    title: 'title',
-                    confirmButton: 'btn-confirm',
-                    cancelButton: 'btn-cancel',
-                }
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Value input comment
-                    const input_comment = result.value;
-                    // Update Status Record
-                    axios.put('/comment/insert/' + id, {
-                            view_comment: input_comment,
-                            view_id_user: id_user,
-                        })
-                        .then(response => {
-                            // Popup Success
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Tanggapan Ditambahkan',
-                                timer: 1500,
-                                timerProgressBar: true,
-                                showConfirmButton: false,
-                                customClass: {
-                                    popup: 'background',
-                                    title: 'title',
-                                }
-                            });
-                            // Refresh Page
-                            setTimeout(function() {
-                                location.reload();
-                            }, 1400);
-                        })
-                        // Catch Error
-                        .catch(error => {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Gagal Menambahkan Tanggapan',
-                                timer: 1500,
-                                timerProgressBar: true,
-                                showConfirmButton: false,
-                                customClass: {
-                                    popup: 'background',
-                                    title: 'title',
-                                }
-                            })
-                        });
+    };
+    if (role === 'admin') {
+        popupOptions.showCancelButton = true;
+        popupOptions.cancelButtonText = 'Download';
+    }
 
-                }
-            });
-        }
-    })
+    Swal.fire(popupOptions)
+        .then((result) => {
+            // validate the report and than change status to process
+            if (result.isConfirmed) {
+                // Confirmation validate the report
+                Swal.fire({
+                    title: 'Enter Comment',
+                    input: 'text',
+                    inputPlaceholder: 'Masukkan tanggapan',
+                    inputAttributes: {
+                        autocapitalize: 'off',
+                    },
+                    showCancelButton: true,
+                    confirmButtonText: 'Submit',
+                    cancelButtonText: 'Cancel',
+                    customClass: {
+                        input: 'input-text',
+                        popup: 'background',
+                        title: 'title',
+                        confirmButton: 'btn-confirm',
+                        cancelButton: 'btn-cancel',
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Value input comment
+                        const input_comment = result.value;
+                        // Update Status Record
+                        axios.put('/comment/insert/' + id, {
+                                view_comment: input_comment,
+                                view_id_user: id_user,
+                            })
+                            .then(response => {
+                                // Popup Success
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Tanggapan Ditambahkan',
+                                    timer: 1500,
+                                    timerProgressBar: true,
+                                    showConfirmButton: false,
+                                    customClass: {
+                                        popup: 'background',
+                                        title: 'title',
+                                    }
+                                });
+                                // Refresh Page
+                                setTimeout(function() {
+                                    location.reload();
+                                }, 1400);
+                            })
+                            // Catch Error
+                            .catch(error => {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Gagal Menambahkan Tanggapan',
+                                    timer: 1500,
+                                    timerProgressBar: true,
+                                    showConfirmButton: false,
+                                    customClass: {
+                                        popup: 'background',
+                                        title: 'title',
+                                    }
+                                })
+                            });
+
+                    }
+                });
+            }
+            // If Choose Button Download
+            else if (result.dismiss === Swal.DismissReason.cancel) {
+                // Download File with change url 
+                // Arahkan pengguna ke halaman tujuan setelah laman dimuat
+                window.location.href = '/report/download/' + id;
+
+// Tutup pesan loading setelah halaman tujuan dimuat sepenuhnya
+window.onload = function() {
+  Swal.close();
+};
+
+            }
+        })
 }
 
 // Detail Your Report
 function showPopupMyReport(id, title, destination, date_create, status, message) {
+    // Popup Options if Status = Terkirim Add Button Delete
     let popupOptions = {
         title: title,
         html: '<div class="text-base text-left">' +
