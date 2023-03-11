@@ -20,7 +20,7 @@ Route::post('register', 'RegisterController@registeraksi')->name('registeraksi')
 Route::get('home', 'HomeController@index')->name('home')->middleware('auth');
 Route::get('logoutaksi', 'LoginController@logoutaksi')->name('logoutaksi')->middleware('auth');
 
-// Akses Pengguna
+// User Access
 Route::middleware('user')->group(function () {
     Route::get('/report', 'ReportController@index')->name('report');
     Route::post('/report', 'ReportController@submit')->name('submit_report');
@@ -28,7 +28,7 @@ Route::middleware('user')->group(function () {
     Route::delete('/report/delete/{id}', 'YourReportController@delete')->name('report_delete');
 }); 
 
-// Akses Admin & Office
+// Admin & Office Access
 Route::middleware('adminOffice')->group(function () {
     Route::get('/preview/report', 'PreviewReportController@index')->name('preview_report');
     Route::put('/preview/report/{id}/update', 'PreviewReportController@updateStatus')->name('update_status_report');
@@ -36,4 +36,8 @@ Route::middleware('adminOffice')->group(function () {
     Route::get('/validated/report', 'ValidatedReportController@index')->name('validated');
     Route::get('/done/report', 'DoneReportController@index')->name('done_report');
 });
- 
+
+// Admin Access
+Route::middleware('admin')->group(function () {
+    Route::get('report/download/{id}', 'ValidatedReportController@downloadReport')->name('download_report');
+});

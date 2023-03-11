@@ -18,7 +18,7 @@ class YourReportController extends Controller
         return view('pages.yourreport', ['report' => $report]);
     }
 
-    public Function delete(Request $request, $id){
+    public Function delete($id){
         DB::statement('CALL delete_record(?)', [$id]);
 
         return response()->json(['success' => true]);
