@@ -35,16 +35,16 @@ class ValidatedReportController extends Controller
 
         // Generate PDF
         $pdf = new Dompdf($options);
-        $pdf->setPaper('A4', 'landscape');
+        $pdf->setPaper('F4', 'potrait');
         $pdf->loadHtml($view);
         $pdf->render();
 
-        // Mengatur nama file yang akan diunduh
-        $filename = 'report-' . date('Ymd_His') . '.pdf';
+        // Setting filename
+        $filename = 'report-' . $id . '.pdf';
 
-        // Melakukan proses download
+        // Process Download
         return response($pdf->output(), 200)
-        ->header('Content-Type', 'application/pdf')
-        ->header('Content-Disposition', 'attachment; filename="' . $filename . '"');
+            ->header('Content-Type', 'application/pdf')
+            ->header('Content-Disposition', 'attachment; filename="' . $filename . '"');
     }
 }
