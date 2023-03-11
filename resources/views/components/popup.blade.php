@@ -303,14 +303,11 @@ function showPopupValidated(id, title, destination, date_create, status, message
             // If Choose Button Download
             else if (result.dismiss === Swal.DismissReason.cancel) {
                 // Download File with change url 
-                // Arahkan pengguna ke halaman tujuan setelah laman dimuat
                 window.location.href = '/report/download/' + id;
 
-// Tutup pesan loading setelah halaman tujuan dimuat sepenuhnya
-window.onload = function() {
-  Swal.close();
-};
-
+                axios.put('/preview/report/' + id + '/update', {
+                    new_value: 'Selesai'
+                })
             }
         })
 }
