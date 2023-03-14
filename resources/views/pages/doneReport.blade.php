@@ -22,9 +22,6 @@
         <a href="{{ route('done_report') }}"
             class="bg-birutua text-white rounded-3xl px-3 py-2 text-sm">Done Report</a>
         @endif
-
-        <a href="#" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">About
-            Us</a>
     </div>
 </div>
 @endsection
