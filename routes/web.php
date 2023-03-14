@@ -40,4 +40,6 @@ Route::middleware('adminOffice')->group(function () {
 // Admin Access
 Route::middleware('admin')->group(function () {
     Route::get('report/download/{id}', 'ValidatedReportController@downloadReport')->name('download_report');
+    Route::get('createofficer', 'RegisterController@registerOfficer')->name('create_office');
+    Route::post('createofficer', 'RegisterController@registerAksiOfficer')->name('registerofficer');
 });

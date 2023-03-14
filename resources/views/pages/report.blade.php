@@ -22,6 +22,11 @@
             class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Validated Report</a>
         <a href="{{ route('done_report') }}" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Done Report</a>
         @endif
+
+        @if (auth()->user()->role=="admin")
+        <a href="{{ route('create_office') }}"
+            class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Create Account</a>
+        @endif
     </div>
 </div>
 @endsection

@@ -6,7 +6,7 @@ if (form) {
     form.addEventListener('submit', (event) => {
         event.preventDefault();
         Swal.fire({
-            title: 'Are you sure, will send report?',
+            title: 'Yakin, Ingin Mengirim Laporan?',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonText: ' Yes ',
@@ -25,11 +25,36 @@ if (form) {
     })
 }
 
+// POP UP VALIDATE CREATE ACCOUNT OFFICER
+const formCreateAccount = document.querySelector('#form-create-account');
+if (formCreateAccount) {
+    formCreateAccount.addEventListener('submit', (event) => {
+        event.preventDefault();
+        Swal.fire({
+            title: 'Yakin, Ingin Menambahkan Akun Petugas?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: ' Yes ',
+            cancelButtonText: ' No ',
+            customClass: {
+                popup: 'background',
+                confirmButton: 'btn-confirm',
+                cancelButton: 'btn-cancel',
+                title: 'title',
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                formCreateAccount.submit();
+            }
+        })
+    })
+}
+
 // Pop Up Error Validate Report
 @if($errors -> any())
 Swal.fire({
     icon: 'error',
-    title: 'Failed Send',
+    title: 'Gagal Mengirim',
     html: '@foreach ($errors->all() as $error)<li class="text-md leading-5 text-sm text-left font-bold">{{ $error }}</li>@endforeach',
     confirmButtonText: ' Yes ',
     customClass: {
@@ -44,7 +69,7 @@ Swal.fire({
 @if(session('success_sendreport'))
 Swal.fire({
     icon: 'success',
-    title: 'Report Succes Sent',
+    title: 'Laporan Berhasil Dikirim',
     timer: 2500,
     timerProgressBar: true,
     showConfirmButton: false,
@@ -55,6 +80,20 @@ Swal.fire({
 })
 @endif
 
+//  Pop Up Success Create Account Officer
+@if(session('success_create_officer'))
+Swal.fire({
+    icon: 'success',
+    title: 'Berhasil Menambahkan Akun!',
+    timer: 2500,
+    timerProgressBar: true,
+    showConfirmButton: false,
+    customClass: {
+        popup: 'background',
+        title: 'title',
+    }
+})
+@endif
 
 // Pop Up Card Review Report
 // Detail Report
@@ -107,7 +146,7 @@ function showPopup(id, title, destination, date_create, status, message, id_user
                             // Popup Success
                             Swal.fire({
                                 icon: 'success',
-                                title: 'Report Has Been Validated',
+                                title: 'Laporan Berhasil Divalidasi',
                                 timer: 1500,
                                 timerProgressBar: true,
                                 showConfirmButton: false,
@@ -241,7 +280,7 @@ function showPopupValidated(id, title, destination, date_create, status, message
                 Swal.fire({
                     title: 'Enter Comment',
                     input: 'text',
-                    inputPlaceholder: 'Masukkan tanggapan',
+                    inputPlaceholder: 'Masukkan Tanggapan',
                     inputAttributes: {
                         autocapitalize: 'off',
                     },

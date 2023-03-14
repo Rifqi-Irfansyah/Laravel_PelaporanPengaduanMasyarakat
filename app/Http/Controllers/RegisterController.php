@@ -38,4 +38,27 @@ class RegisterController extends Controller
             return redirect()->back();
         }
     }
+
+    public function registerOfficer()
+    {
+        return view('pages.createOffice');
+    }
+
+    public function registerAksiOfficer(Request $request)
+    {
+        $this->validate($request, [
+            'email' => ['required','email', 'unique:users,email'],
+            'password' => ['required', 'min:8', 'confirmed'],
+            'password_confirmation' => ['required', 'min:8']
+        ]);
+
+       $user = User::create([
+            'role' => 'office',
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect()->back()->with('success_create_officer', 'Berhasil Menambahkan Akun!');
+    }
 }
