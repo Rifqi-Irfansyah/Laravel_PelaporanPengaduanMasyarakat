@@ -5,7 +5,8 @@
 @section('navbar')
 <div class="hidden sm:ml-6 sm:block">
     <div class="flex space-x-4 font-medium">
-        <a href="/" class="hover:bg-birutua text-white rounded-3xl px-3 py-2 text-sm bg-birutua" aria-current="page">Dashboard</a>
+        <a href="/" class="hover:bg-birutua text-white rounded-3xl px-3 py-2 text-sm bg-birutua"
+            aria-current="page">Dashboard</a>
 
         @if (auth()->user()->role=="user")
         <a href="{{ route('report') }}"
@@ -19,7 +20,8 @@
             class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Review Report</a>
         <a href="{{ route('validated') }}"
             class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Validated Report</a>
-        <a href="{{ route('done_report') }}" class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Done Report</a>
+        <a href="{{ route('done_report') }}"
+            class="text-gray-300 hover:bg-birutua hover:text-white rounded-3xl px-3 py-2 text-sm">Done Report</a>
         @endif
 
         @if (auth()->user()->role=="admin")
@@ -111,85 +113,66 @@
 </section>
 
 <section class="bg-white border-b py-8">
-    <div class="container mx-auto flex flex-wrap pt-4 pb-12">
-        <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-            Title
-        </h2>
-        <div class="w-full mb-4">
-            <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
-        </div>
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-            <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-                <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-                    <p class="w-full text-gray-600 text-xs md:text-sm px-6">
-                        xGETTING STARTED
-                    </p>
-                    <div class="w-full font-bold text-xl text-gray-800 px-6">
-                        Lorem ipsum dolor sit amet.
-                    </div>
-                    <p class="text-gray-800 text-base px-6 mb-5">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
-                        posuere et sit amet ligula.
-                    </p>
-                </a>
+    <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+        <div class="mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12 pb-8">
+            <h2 class="w-full my-2 text-4xl font-bold leading-tight text-center text-gray-800">
+                Cara Kerja Sistem
+            </h2>
+            <div class="w-full mb-4">
+                <div class="h-1 mx-auto gradient w-64 my-0 py-0 rounded-t"></div>
             </div>
-            <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-                <div class="flex items-center justify-start">
-                    <button
-                        class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                        Action
-                    </button>
+        </div>
+        <div class="grid gap-8 row-gap-0 lg:grid-cols-3">
+            <div class="relative text-center">
+                <img src="{{asset('images/icon_step1.png')}}" class="flex mx-auto mb-4 sm:w-20 sm:h-20"
+                    style="width:50%; height:auto;">
+                </img>
+                <div class="flex flex-col items-center justify-center">
+                    <div class="w-full text-center">
+                        <p class="max-w-md mb-3 text-lg text-gray-900 sm:mx-auto font-bold">
+                            Buat Laporan
+                        </p>
+                    </div>
+                </div>
+                <div class="top-0 right-0 flex items-center justify-center h-24 lg:-mr-8 lg:absolute">
+                    <svg class="w-8 text-birutua transform rotate-90 lg:rotate-0" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <line fill="none" stroke-miterlimit="10" x1="2" y1="12" x2="22" y2="12"></line>
+                        <polyline fill="none" stroke-miterlimit="10" points="15,5 22,12 15,19 "></polyline>
+                    </svg>
+                </div>
+            </div>
+            <div class="relative text-center">
+                <img src="{{asset('images/icon_step2.png')}}" class="flex w-full mx-auto mb-4 sm:w-20 sm:h-20"
+                    style="width:50%; height:auto;">
+                </img>
+                <div class="flex flex-col items-center justify-center">
+                    <div class="w-full text-center">
+                        <p class="max-w-md mb-3 text-lg text-gray-900 sm:mx-auto font-bold">
+                            Laporan di Validasi
+                        </p>
+                    </div>
+                    <div class="top-0 right-0 flex items-center justify-center h-24 lg:-mr-8 lg:absolute">
+                        <svg class="w-8 text-birutua transform rotate-90 lg:rotate-0" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <line fill="none" stroke-miterlimit="10" x1="2" y1="12" x2="22" y2="12"></line>
+                            <polyline fill="none" stroke-miterlimit="10" points="15,5 22,12 15,19 "></polyline>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="relative text-center">
+                <img src="{{asset('images/icon_step3.png')}}" class="flex w-full mx-auto mb-4 sm:w-20 sm:h-20"
+                    style="width:50%; height:auto;">
+                </img>
+                <div class="flex flex-col items-center justify-center">
+                    <div class="w-full text-center">
+                        <p class="max-w-md mb-3 text-lg text-gray-900 sm:mx-auto font-bold">
+                            Laporan dicetak
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-            <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-                <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-                    <p class="w-full text-gray-600 text-xs md:text-sm px-6">
-                        xGETTING STARTED
-                    </p>
-                    <div class="w-full font-bold text-xl text-gray-800 px-6">
-                        Lorem ipsum dolor sit amet.
-                    </div>
-                    <p class="text-gray-800 text-base px-6 mb-5">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
-                        posuere et sit amet ligula.
-                    </p>
-                </a>
-            </div>
-            <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-                <div class="flex items-center justify-center">
-                    <button
-                        class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                        Action
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-            <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-                <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-                    <p class="w-full text-gray-600 text-xs md:text-sm px-6">
-                        xGETTING STARTED
-                    </p>
-                    <div class="w-full font-bold text-xl text-gray-800 px-6">
-                        Lorem ipsum dolor sit amet.
-                    </div>
-                    <p class="text-gray-800 text-base px-6 mb-5">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
-                        posuere et sit amet ligula.
-                    </p>
-                </a>
-            </div>
-            <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-                <div class="flex items-center justify-end">
-                    <button
-                        class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                        Action
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
 </section>
 @endsection
