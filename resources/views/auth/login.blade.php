@@ -18,7 +18,7 @@
     @if(session('error'))
     Swal.fire({
         icon: 'error',
-        title: 'Login Failed\nUsername or Password Wrong',
+        title: 'Login Failed\nUsername atau Password Salah',
         confirmButtonText: ' Yes ',
         customClass: {
             popup: 'background',
