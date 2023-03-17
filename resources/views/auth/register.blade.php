@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
     <title>ReportNow</title>
+    <link href="{{asset('images/logo_dark.png')}}" rel="icon">
+    <link href="{{asset('images/logo_dark.png')}}" rel="apple-touch-icon">
     <link rel="stylesheet" href="{{asset('css/popup.css')}}">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
