@@ -2,7 +2,8 @@ Nama: Rifqi Irfansyah<br>
 Kelas: XII RPL A<br>
 Sekolah: SMKN 1 CIMAHI<br>
 
-<h3 center>** Cara Menjalankan Aplikasi **</h3>
+<h3 text-center>** Cara Menjalankan Aplikasi **</h3>
+
 1. buat symlink folder image_report yang ada pada storage ke folder public
 	- symlink: project>public>storage>images_report
 	- folder tujuan: project>public>storage>images_report
@@ -25,19 +26,19 @@ Sekolah: SMKN 1 CIMAHI<br>
 2. Isi dari data seeder meliputi akun user, akun office, akun admin
 	<table>
 		<tr>
-			<td>Role: user<td>
-			<td>email: rifqi@gmail.com<td>
-			<td>pass: rifqi123<td>
+			<td>Role: user</td>
+			<td>email: rifqi@gmail.com</td>
+			<td>pass: rifqi123</td>
 		</tr>
 		<tr>
-			<td>Role: office<td>
-			<td>email: petugas@gmail.com<td>
-			<td>pass: petugas123<td>
+			<td>Role: office</td>
+			<td>email: petugas@gmail.com</td>
+			<td>pass: petugas123</td>
 		</tr>
 		<tr>
-			<td>Role: user<td>
-			<td>email: admin@gmail.com<td>
-			<td>pass: admin123<td>
+			<td>Role: user</td>
+			<td>email: admin@gmail.com</td>
+			<td>pass: admin123</td>
 		</tr>
 	</table>
 3. Isi dari data seeder meliputi konten awal yang datanya dibuat oleh user bernama Rifqi
