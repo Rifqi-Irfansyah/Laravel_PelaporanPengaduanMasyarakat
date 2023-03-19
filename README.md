@@ -2,7 +2,7 @@ Nama: Rifqi Irfansyah<br>
 Kelas: XII RPL A<br>
 Sekolah: SMKN 1 CIMAHI<br>
 
-<h3 text-center>** Cara Menjalankan Aplikasi **</h3>
+<h3>*** Cara Menjalankan Aplikasi ***</h3>
 
 1. buat symlink folder image_report yang ada pada storage ke folder public
 	- symlink: project>public>storage>images_report
@@ -21,7 +21,7 @@ Sekolah: SMKN 1 CIMAHI<br>
 5. Selanjutnya Aplikasi dapat dijalankan secara normal, User Manual tercantum pada file panduan pengguna	
 
 
-** Notes **
+<h3>*** Notes ***</h3>
 1. Data seeder merupakan data awal pembuatan, untuk memperlihatkan gambaran pada sistem yang berjalan
 2. Isi dari data seeder meliputi akun user, akun office, akun admin
 	<table>
