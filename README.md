@@ -25,20 +25,25 @@ Sekolah: SMKN 1 CIMAHI<br>
 1. Data seeder merupakan data awal pembuatan, untuk memperlihatkan gambaran pada sistem yang berjalan
 2. Isi dari data seeder meliputi akun user, akun office, akun admin
 	<table>
-		<tr>
-			<td>Role: user</td>
-			<td>email: rifqi@gmail.com</td>
-			<td>pass: rifqi123</td>
+		<tr class="text-bold">
+			<td class="text-bold">username</td>
+			<td>email</td>
+			<td>password</td>
 		</tr>
 		<tr>
-			<td>Role: office</td>
-			<td>email: petugas@gmail.com</td>
-			<td>pass: petugas123</td>
+			<td>user</td>
+			<td>rifqi@gmail.com</td>
+			<td>rifqi123</td>
 		</tr>
 		<tr>
-			<td>Role: user</td>
-			<td>email: admin@gmail.com</td>
-			<td>pass: admin123</td>
+			<td>office</td>
+			<td>petugas@gmail.com</td>
+			<td>petugas123</td>
+		</tr>
+		<tr>
+			<td>user</td>
+			<td>admin@gmail.com</td>
+			<td>admin123</td>
 		</tr>
 	</table>
 3. Isi dari data seeder meliputi konten awal yang datanya dibuat oleh user bernama Rifqi
