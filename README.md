@@ -22,16 +22,16 @@ Disini saya tidak mencantumkan file database, namun saya sudah membuat seeder da
 ** Notes **
 1. Data seeder merupakan data awal pembuatan, untuk memperlihatkan gambaran pada sistem yang berjalan
 2. Isi dari data seeder meliputi akun user, akun office, akun admin
-	Role: user
-	email: rifqi@gmail.com
-	pass: rifqi123
+	- Role: user
+	- email: rifqi@gmail.com
+	- pass: rifqi123
 
-	Role: office
-	email: petugas@gmail.com
-	pass: petugas123
+	- Role: office
+	- email: petugas@gmail.com
+	- pass: petugas123
 
-	Role: admin
-	email: admin@gmail.com
-	pass: admin123
+	- Role: admin
+	- email: admin@gmail.com
+	- pass: admin123
 3. Isi dari data seeder meliputi konten awal yang datanya dibuat oleh user bernama Rifqi
 		
