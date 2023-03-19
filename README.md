@@ -4,8 +4,9 @@ Sekolah: SMKN 1 CIMAHI
 
 ** Cara Menjalankan Aplikasi **
 1. buat symlink folder image_report yang ada pada storage ke folder public
-	- Masuk directory-> project>public>storage
-	- Ketikkan-> ln -s ../../storage/app/public/images_report (command unix, gunakan gitbash)
+	- symlink: project>public>storage>images_report
+	- folder tujuan: project>public>storage>images_report
+	Namun, jika sudah terbuat symlink, tidak usah 
 2. Seeding Data menggunakan terminal
 Disini saya tidak mencantumkan file database, namun saya sudah membuat seeder data
 	- php artisan migrate:refresh
