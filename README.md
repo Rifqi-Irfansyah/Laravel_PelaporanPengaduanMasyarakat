@@ -22,11 +22,12 @@ Sekolah: SMKN 1 CIMAHI<br>
 
 
 <h3>*** Notes ***</h3>
+
 1. Data seeder merupakan data awal pembuatan, untuk memperlihatkan gambaran pada sistem yang berjalan
 2. Isi dari data seeder meliputi akun user, akun office, akun admin
 	<table>
-		<tr class="text-bold">
-			<td class="text-bold">username</td>
+		<tr class="font-bold">
+			<td>username</td>
 			<td>email</td>
 			<td>password</td>
 		</tr>
