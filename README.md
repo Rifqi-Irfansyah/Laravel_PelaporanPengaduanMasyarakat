@@ -56,6 +56,7 @@ Sekolah: SMKN 1 CIMAHI<br>
 ![image](https://user-images.githubusercontent.com/96564588/226570812-dcd16fdf-9f84-4789-85f8-aadc8f2165b7.png)
 
 <h3>Landing Page</h3>
+
 ![image](https://user-images.githubusercontent.com/96564588/226571674-8f020ba9-c442-4a45-b29e-75e4913961b5.png)
 ![image](https://user-images.githubusercontent.com/96564588/226571765-22b004dc-bced-429c-b219-e1715bec8766.png)
 ![image](https://user-images.githubusercontent.com/96564588/226571823-499366a6-ee15-45d4-9432-da6ccf8f84c0.png)
